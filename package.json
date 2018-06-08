@@ -1,8 +1,8 @@
 {
-  "name": "obsidian",
-  "description": "A Vue.js project",
-  "version": "1.0.0",
-  "author": "Mattias Hagberg <pestbarn@gmail.com>",
+  "name": "obsidian-craft-brewery",
+  "description": "",
+  "version": "0.0.1",
+  "author": "Mattias Hagberg <hello@mattias.pw>",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --hot",
