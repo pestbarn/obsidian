@@ -14,82 +14,43 @@
 
         <hr>
 
-        <article class="beer">
+        <article class="beer" v-for="beer in beers" :key="beer.id">
             <figure class="beer-label">
-                <img src="./assets/01.abbey.abattoir.png">
+                <img :src="`dist/${beer.id}.png`">
             </figure>
             <div class="beer-content">
                 <ul class="beer-info">
                     <li>
                         <h2>
-                            Abbey Abattoir
+                            {{ beer.name }}
                         </h2>
                     </li>
                     <li>
                         <strong>
-                            <a href="https://untappd.com/b/obsidian-craft-brewery-abbey-abattoir/2684494">
+                            <a :href="`https://untappd.com/b/${ beer.url }`">
                                 View on Untappd
                             </a>
                         </strong>
                     </li>
-                    <li>Belgian Tripel</li>
-                    <li>7.0%</li>
+                    <li>{{ beer.style }}</li>
+                    <li>{{ beer.abv }}</li>
                     <li>&mdash;</li>
                     <li>
-                        <a href="#" @click.prevent="showRecipe('abbey')">(toggle recipe)</a>
+                        <a href="" @click.prevent="showRecipe(beer.id)">(toggle recipe)</a>
                     </li>
                 </ul>
-                <ul class="beer-recipe" id="abbey">
+                <ul class="beer-recipe" :id="beer.id">
                     <li><strong>Ingredients:</strong>
                         <ul>
-                            <li>4 kg Pilsner malt</li>
-                            <li>460g Belgian candi sugar</li>
-                            <li>460g Carapils malt</li>
-                            <li>60g Tettnanger (Hallertau)</li>
-                            <li>2 l yeast starter (Whitelabs WLP500)</li>
-                            <li>20 l water</li>
+                            <li v-for="ingredient in beer.ingredients.slice(1)" :key="ingredient">
+                                {{ ingredient }}
+                            </li>
                         </ul>
                     </li>
                     <li><strong>Instructions:</strong>
                         <ol>
-                            <li>
-                                Place half of water in refrigerator to cool in sanitized container
-                            </li>
-                            <li>
-                                Tie 460g Carapils in large mesh grain bag and place in 10 liters of water
-                            </li>
-                            <li>
-                                Begin to heat, remove bag when temperature reaches 77°C
-                            </li>
-                            <li>
-                                Bring to boil &ndash; slowly add 900g Pilsner malt
-                            </li>
-                            <li>
-                                When boil begins, add all hops in a mesh bag
-                            </li>
-                            <li>
-                                After 45 min of boiling, add remaining Pilsner malt and Belgian candi sugar
-                            </li>
-                            <li>
-                                After 60 min, remove from heat
-                            </li>
-                            <li>
-                                Cool wort below 29°C and transfer to sanitized fermentor &ndash; top off with refrigerated water
-                            </li>
-                            <li>
-                                Take gravity reading &ndash; you're aiming for <strong>~1.075</strong>
-                            </li>
-                            <li>
-                                Carefully pour yeast starter into cooled wort (below 21°C), agitate vigorously
-                            </li>
-                            <li>
-                                Ferment in dark place, keep ambient temperature between 20 and 21°C
-                            </li>
-                            <li>
-                                After primary fermentation (two consistent gravity readings), transfer to secondary bucket, clean and sanitize primary fermentors, and pour back for conditioning &ndash; store as cool as possible
-                            </li>
-                            <li>
-                                Bottle after another two to four weeks, prime with candi sugar (6g / liter)
+                            <li v-for="instruction in beer.instructions.slice(1)" :key="instruction">
+                                {{ instruction }}
                             </li>
                         </ol>
                     </li>
@@ -123,7 +84,8 @@
         name: 'app',
         data() {
             return {
-                subtitle: 'Craft Brewery'
+                subtitle: 'Craft Brewery',
+                beers: []
             }
         },
         mounted() {
@@ -133,14 +95,17 @@
                 this.loadBeers();
             });
         },
+        computed: {
+            val: function() { console.dir(this.beers) }
+        },
         methods: {
             loadBeers() {
                 const db = firebase.database();
 
                 db.ref('/').once('value').then(snap => {
-                    snap.forEach(childSnapshot => {
-                        const childData = childSnapshot.val();
-                        console.dir(childData);
+                    snap.forEach(beer => {
+                        const thisBeer = beer.val();
+                        this.beers.push(thisBeer);
                     });
                 });
             },
