@@ -12,9 +12,9 @@
         </header>
         <p>Uppsala, Sweden</p>
 
-        <hr>
-
         <article class="beer" v-for="beer in beers" :key="beer.id">
+            <hr>
+
             <figure class="beer-label">
                 <img :src="`dist/${beer.id}.png`">
             </figure>
@@ -122,13 +122,7 @@
 
 <style lang="scss">
     @import url('https://fonts.googleapis.com/css?family=Allerta+Stencil|Glegoo');
-
-    :root {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        font-size: 16px;
-        color: #666;
-    }
+    @import url('main.css');
 
     .logotype {
         width: 12.5rem;
@@ -143,7 +137,7 @@
         font-family: 'Glegoo', Helvetica, Arial, sans-serif;
         text-align: center;
         max-width: 80rem;
-        margin: 3.75rem auto;
+        margin: 3.75rem auto 0;
     }
 
     h1 {
@@ -157,14 +151,18 @@
 
     hr {
         margin: 5rem 0;
-        border-color: #999;
+        border-color: #0d343e;
+
+        @media screen and (max-width: 768px) {
+            margin: 2rem 0;
+        }
     }
 
     a {
-        color: hotpink;
+        color: #22a6aa;
 
         &:hover {
-            color: deeppink;
+            color: #65cfca;
             cursor: pointer;
         }
     }
@@ -180,70 +178,5 @@
 
     img {
         max-width: 100%;
-    }
-
-    article {
-        margin: 2rem 0;
-
-        > ul,
-        .beer-recipe > ul {
-            padding: 0;
-        }
-    }
-
-    .beer {
-        display: grid;
-        grid-template-columns: 40vw 50vw;
-        grid-gap: 2.5rem;
-        align-items: start;
-
-        a,
-        ul {
-            grid-column: 2;
-        }
-
-        @media screen and (max-width: 768px) {
-            grid-template-columns: 100vw;
-        }
-    }
-
-    .beer-label {
-        padding: 1rem;
-
-        img {
-            border: 1px solid #999;
-        }
-
-        @media screen and (max-width: 768px) {
-            max-width: 75vw;
-            justify-self: center;
-        }
-    }
-
-    .beer-info,
-    .beer-recipe {
-        text-align: left;
-        font-size: .875rem;
-    }
-
-    .beer-recipe {
-        display: none;
-    }
-
-    footer {
-        margin-top: 5rem;
-        padding-top: 5rem;
-        border-top: 1px solid #999;
-
-        a {
-            text-transform: uppercase;
-        }
-        ul {
-            padding: 0;
-        }
-        li {
-            display: inline-block;
-            padding-right: 2rem;
-        }
     }
 </style>
