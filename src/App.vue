@@ -131,12 +131,16 @@
         text-align: center;
         max-width: 80rem;
         margin: 3.75rem auto 0;
+
+        @media screen and (max-width: 980px) {
+            margin: 1.5rem 0 0;
+        }
     }
 
     h1 {
         font-family: 'Allerta Stencil';
 
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 980px) {
             font-size: 1.75rem;
             margin-top: .5rem;
         }
@@ -146,7 +150,7 @@
         margin: 5rem 0;
         border-color: #0d343e;
 
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 980px) {
             margin: 2rem 0;
         }
     }

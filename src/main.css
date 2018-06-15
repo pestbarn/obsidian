@@ -5,6 +5,12 @@
     color: #0d343e;
 }
 
+@media screen and (max-width: 980px) {
+    :root {
+        font-size: 2rem;
+    }
+}
+
 body {
     background: #faf4e4;
 }
@@ -18,10 +24,11 @@ body {
     max-width: 90vw;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 980px) {
     .beer {
         grid-template-columns: 100vw;
         max-width: initial;
+        grid-gap: 0;
     }
 }
 
@@ -39,6 +46,12 @@ figure,
     grid-row: 2;
 }
 
+@media screen and (max-width: 980px) {
+    .beer-content {
+        grid-row: 3;
+    }
+}
+
 .beer-label {
     padding: 0 1rem 1rem;
 }
@@ -47,7 +60,7 @@ figure,
     border: 1px solid #0d343e;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 980px) {
     .beer-label {
         max-width: 75vw;
         justify-self: center;
@@ -91,5 +104,8 @@ footer ul {
 
 footer li {
     display: inline-block;
+}
+
+footer li:first-child {
     padding-right: 2rem;
 }
