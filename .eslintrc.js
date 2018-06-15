@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     root: true,
     parserOptions: {
         parser: 'babel-eslint',
@@ -13,7 +13,8 @@ export default {
         'html'
     ],
     globals: {
-        'firebase': true
+        'firebase': true,
+        'module': true
     },
     'rules': {
         'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,

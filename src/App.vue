@@ -114,6 +114,11 @@
 </template>
 
 <script>
+    import firebase from 'firebase';
+    import * as config from '../firebase.config';
+
+    firebase.initializeApp(config);
+
     export default {
         name: 'app',
         data() {
@@ -121,7 +126,24 @@
                 subtitle: 'Craft Brewery'
             }
         },
+        mounted() {
+            fetch('http://jsonplaceholder.typicode.com/todos')
+            .then(response => response.json())
+            .then(result => {
+                this.loadBeers();
+            });
+        },
         methods: {
+            loadBeers() {
+                const db = firebase.database();
+
+                db.ref('/').once('value').then(snap => {
+                    snap.forEach(childSnapshot => {
+                        const childData = childSnapshot.val();
+                        console.dir(childData);
+                    });
+                });
+            },
             showRecipe(id) {
                 const el = document.getElementById(id);
 
