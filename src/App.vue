@@ -129,7 +129,6 @@
     #app {
         font-family: 'Glegoo', Helvetica, Arial, sans-serif;
         text-align: center;
-        max-width: 80rem;
         margin: 3.75rem auto 0;
 
         @media screen and (max-width: 980px) {
