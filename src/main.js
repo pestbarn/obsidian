@@ -1,12 +1,7 @@
-import Vue from 'vue'
-import BootstrapVue from "bootstrap-vue"
-import App from './App.vue'
-import "bootstrap/dist/css/bootstrap.min.css"
-import "bootstrap-vue/dist/bootstrap-vue.css"
-
-Vue.use(BootstrapVue)
+import Vue from 'vue';
+import App from './App.vue';
 
 new Vue({
-  el: '#app',
-  render: h => h(App)
-})
+    el: '#app',
+    render: h => h(App)
+});
