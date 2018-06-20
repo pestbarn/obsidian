@@ -36,7 +36,7 @@
                     <li>{{ beer.abv }}</li>
                     <li>&mdash;</li>
                     <li>
-                        <a href="" @click.prevent="showRecipe(beer.id)">(toggle recipe)</a>
+                        <a href="" @click.prevent="showRecipe(beer.id)">Show / hide recipe</a>
                     </li>
                 </ul>
                 <ul class="beer-recipe" :id="beer.id">
