@@ -26,17 +26,17 @@
                         </h2>
                     </li>
                     <li>
-                        <strong>
-                            <a :href="`https://untappd.com/b/${ beer.url }`">
-                                View on Untappd
-                            </a>
-                        </strong>
+                        <strong>{{ beer.style }}</strong>
                     </li>
-                    <li>{{ beer.style }}</li>
                     <li>{{ beer.abv }}</li>
                     <li>&mdash;</li>
                     <li>
-                        <a href="" @click.prevent="showRecipe(beer.id)">Show / hide recipe</a>
+                        <a :href="`https://untappd.com/b/${ beer.url }`">
+                            View on Untappd<sup>↗</sup>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" @click.prevent="showRecipe(beer.id)">Recipe 🍺</a>
                     </li>
                 </ul>
                 <ul class="beer-recipe" :id="beer.id">
@@ -162,6 +162,7 @@
 
     a {
         color: #22a6aa;
+        font-weight: 600;
 
         &:hover {
             color: #65cfca;
