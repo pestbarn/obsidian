@@ -69,6 +69,12 @@
                         Untappd
                     </a>
                 </li>
+                <li>
+                    <a href="https://freepik.com/free-vector/shiny-geometric-shapes-pattern_1112735.htm"
+                        title="Background pattern 'Shiny geometric shapes pattern' created by @visnezh / Freepik">
+                        Pattern design
+                    </a>
+                </li>
             </ul>
         </footer>
     </div>

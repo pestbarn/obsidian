@@ -6,7 +6,7 @@
 }
 
 body {
-    background: #faf4e4;
+    background: #faf4e4 url(assets/background.png) repeat;
     overflow-x: hidden;
 }
 
@@ -103,4 +103,8 @@ footer li {
 
 footer li:first-child {
     padding-right: 2rem;
+}
+
+footer li:last-child {
+    padding-left: 2rem;
 }
