@@ -7,30 +7,34 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --hot",
     "deploy": "npm run build && firebase deploy",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "update:packages": "node wipe-dependencies.js && rm -rf node_modules && npm update --save && npm update --save-dev"
   },
   "dependencies": {
-    "vue": "^2.5.3"
+    "vue": "*"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-eslint": "^8.2.3",
-    "babel-loader": "^6.0.0",
-    "babel-preset-env": "^1.6.1",
-    "cross-env": "^5.1.1",
-    "css-loader": "^0.28.7",
-    "eslint": "^4.19.1",
-    "eslint-plugin-html": "^4.0.3",
-    "eslint-plugin-vue": "^4.5.0",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "file-loader": "^1.1.5",
-    "firebase": "^5.0.4",
-    "node-sass": "^4.6.1",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.19.0",
-    "vue-loader": "^13.5.0",
-    "vue-template-compiler": "^2.5.3",
-    "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.4"
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "babel-core": "*",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.4",
+    "babel-preset-env": "*",
+    "cross-env": "^5.2.0",
+    "css-loader": "^2.0.0",
+    "eslint": "^5.10.0",
+    "eslint-plugin-html": "^5.0.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^2.0.0",
+    "firebase": "^5.7.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "vue-loader": "^15.4.2",
+    "vue-template-compiler": "^2.5.21",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
   }
 }
