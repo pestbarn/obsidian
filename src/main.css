@@ -2,12 +2,18 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 16px;
-    color: #0d343e;
+    color: #cbe86b;
 }
 
 body {
-    background: #faf4e4 url(assets/background.png) repeat;
+    background: #f2e9e1 url(assets/background.png) repeat;
     overflow-x: hidden;
+}
+
+header {
+    background: #fff;
+    padding: 1rem 0;
+    border-bottom: 1px solid black;
 }
 
 .beer {
@@ -15,7 +21,7 @@ body {
     grid-template-columns: 40vw 50vw;
     grid-gap: 2.5rem;
     align-items: start;
-    margin: 2rem auto;
+    margin: 0 auto;
     max-width: 90vw;
 }
 
@@ -52,7 +58,7 @@ figure,
 }
 
 .beer-label img {
-    border: 1px solid #0d343e;
+    border: 1px solid #cbe86b;
 }
 
 @media screen and (max-width: 980px) {
@@ -85,7 +91,7 @@ footer {
     margin-top: 5rem;
     padding: 4.25rem 0;
     border-top: 1px solid #999;
-    background: #0d343e;
+    background: #cbe86b;
 }
 
 footer a {

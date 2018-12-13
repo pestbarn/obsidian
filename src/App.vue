@@ -9,12 +9,10 @@
                 </span>
                 {{ subtitle }}
             </h1>
+            <p>Uppsala, Sweden</p>
         </header>
-        <p>Uppsala, Sweden</p>
 
         <article class="beer" v-for="beer in beers" :key="beer.id">
-            <hr>
-
             <figure class="beer-label">
                 <img :src="`dist/${beer.id}.png`">
             </figure>
@@ -120,7 +118,7 @@
 </script>
 
 <style lang="scss">
-    @import url('https://fonts.googleapis.com/css?family=Allerta+Stencil|Glegoo');
+    @import url('https://fonts.googleapis.com/css?family=Allerta+Stencil|Lato');
     @import url('main.css');
 
     .logotype {
@@ -133,9 +131,9 @@
     }
 
     #app {
-        font-family: 'Glegoo', Helvetica, Arial, sans-serif;
+        font-family: 'Lato', Helvetica, Arial, sans-serif;
         text-align: center;
-        margin: 3.75rem auto 0;
+        margin: 0 auto;
 
         @media screen and (max-width: 980px) {
             margin: 1.5rem 0 0;
@@ -153,7 +151,7 @@
 
     hr {
         margin: 5rem 0;
-        border-color: #0d343e;
+        border-color: #1c140d;
 
         @media screen and (max-width: 980px) {
             margin: 2rem 0;
@@ -161,11 +159,11 @@
     }
 
     a {
-        color: #22a6aa;
+        color: #1c140d;
         font-weight: 600;
 
         &:hover {
-            color: #65cfca;
+            color: #1c140d;
             cursor: pointer;
         }
     }
