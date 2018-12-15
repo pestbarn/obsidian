@@ -12,6 +12,8 @@
             <p>Uppsala, Sweden</p>
         </header>
 
+        <img src="./assets/loading.svg" id="loading">
+
         <article class="beer" v-for="beer in beers" :key="beer.id">
             <figure class="beer-label">
                 <img :src="`dist/${beer.id}.png`">
@@ -100,10 +102,17 @@
                 const db = firebase.database();
 
                 db.ref('/').once('value').then(snap => {
+                    let promises = [];
+
                     snap.forEach(beer => {
-                        const thisBeer = beer.val();
-                        this.beers.push(thisBeer);
+                        promises.push(
+                            this.beers.push(beer.val())
+                        );
                     });
+
+                    Promise.all(promises).then(() =>
+                        document.getElementById('loading').remove()
+                    );
                 });
             },
             showRecipe(id) {
