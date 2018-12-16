@@ -9,15 +9,11 @@
                 </span>
                 {{ subtitle }}
             </h1>
-            <p>Uppsala, Sweden</p>
         </header>
 
         <img src="./assets/loading.svg" id="loading">
 
         <article class="beer" v-for="beer in beers" :key="beer.id">
-            <figure class="beer-label">
-                <img :src="`dist/${beer.id}.png`">
-            </figure>
             <div class="beer-content">
                 <ul class="beer-info">
                     <li>
@@ -56,6 +52,9 @@
                     </li>
                 </ul>
             </div>
+            <figure class="beer-label">
+                <img :src="`dist/${beer.id}.png`">
+            </figure>
         </article>
         <footer>
             <ul>
@@ -131,8 +130,8 @@
     @import url('main.css');
 
     .logotype {
-        width: 12.5rem;
-        margin-left: -5rem;
+        margin: 0 auto;
+        width: 50%;
 
         @media screen and (max-width: 768px) {
             margin-left: 0;
@@ -143,6 +142,9 @@
         font-family: 'Lato', Helvetica, Arial, sans-serif;
         text-align: center;
         margin: 0 auto;
+        display: grid;
+        grid-template-columns: 25% 75%;
+        min-height: 100vh;
 
         @media screen and (max-width: 980px) {
             margin: 1.5rem 0 0;
@@ -150,7 +152,7 @@
     }
 
     h1 {
-        font-family: 'Allerta Stencil';
+        font: 1.5rem 'Allerta Stencil';
 
         @media screen and (max-width: 980px) {
             font-size: 1.75rem;

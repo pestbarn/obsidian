@@ -12,17 +12,19 @@ body {
 
 header {
     background: #fff;
-    padding: 1rem 0;
-    border-bottom: 1px solid black;
+    padding: 1.5rem 0;
+    margin: 1.5rem;
+    border: 1px solid #1c140d;
+    box-shadow: .75rem .75rem 0 0 #1c140d;
+    align-self: start;
 }
 
 .beer {
     display: grid;
-    grid-template-columns: 40vw 50vw;
-    grid-gap: 2.5rem;
+    grid-template-columns: 60% 40%;
+    grid-gap: 1rem;
     align-items: start;
-    margin: 0 auto;
-    max-width: 90vw;
+    margin: 1.5rem 2.5rem 0;
 }
 
 @media screen and (max-width: 980px) {
@@ -40,11 +42,6 @@ header {
 
 .beer hr {
     grid-column: span 2;
-}
-
-figure,
-.beer-content {
-    grid-row: 2;
 }
 
 @media screen and (max-width: 980px) {
@@ -88,10 +85,13 @@ figure,
 }
 
 footer {
-    margin-top: 5rem;
-    padding: 4.25rem 0;
+    margin-top: 2.5rem;
     border-top: 1px solid #999;
     background: #cbe86b;
+    grid-column: 1 / -1;
+    align-self: end;
+    text-align: right;
+    padding: 1rem 2.5rem;
 }
 
 footer a {
