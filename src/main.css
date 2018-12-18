@@ -4,11 +4,12 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 16px;
-    color: #cbe86b;
+    color: #1c140d;
 }
 
 body {
     background: #f2e9e1 url(assets/background.png) repeat;
+    margin: 0;
 }
 
 #app {
@@ -18,10 +19,6 @@ body {
     display: grid;
     grid-template-columns: 25% 75%;
     min-height: 100vh;
-
-    @media screen and (max-width: 980px) {
-        margin: 1.5rem 0 0;
-    }
 }
 
 header {
@@ -36,19 +33,16 @@ header {
 .logotype {
     margin: 0 auto;
     width: 50%;
+}
 
-    @media screen and (max-width: 768px) {
-        margin-left: 0;
-    }
+#loading {
+    margin: 1.5rem 2.5rem 0;
 }
 
 h1 {
     font: 1.5rem 'Allerta Stencil';
-
-    @media screen and (max-width: 980px) {
-        font-size: 1.75rem;
-        margin-top: .5rem;
-    }
+    color: #1c140d;
+    margin: 0;
 }
 
 hr {
@@ -62,21 +56,23 @@ hr {
 
 a {
     color: #1c140d;
+    text-decoration: none;
     font-weight: 600;
+}
 
-    &:hover {
-        color: #1c140d;
-        cursor: pointer;
-    }
+a:hover {
+    color: #fff;
+    background: #1c140d;
+    cursor: pointer;
 }
 
 ul {
     list-style: none;
     margin: 0;
+}
 
-    li {
-        padding: .1rem 0;
-    }
+li {
+    padding: .1rem 0;
 }
 
 img {
@@ -86,7 +82,7 @@ img {
 footer {
     margin-top: 2.5rem;
     border-top: 1px solid #999;
-    background: #cbe86b;
+    background: #1c140d;
     grid-column: 1 / -1;
     align-self: end;
     text-align: right;
@@ -94,8 +90,15 @@ footer {
 }
 
 footer a {
+    color: #fff;
     text-transform: uppercase;
-    font-weight: 600;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+footer a:hover {
+    background: #fff;
+    color: #1c140d;
 }
 
 footer ul {
@@ -106,10 +109,25 @@ footer li {
     display: inline-block;
 }
 
-footer li:first-child {
-    padding-right: 2rem;
+footer li:last-child {
+    padding-left: 1.5rem;
 }
 
-footer li:last-child {
-    padding-left: 2rem;
+@media screen and (max-width: 48rem) {
+    h1 {
+        font-size: 1rem;
+    }
+
+    #app {
+        grid-template-columns: 100%;
+    }
+
+    #loading {
+        margin: 0 auto;
+    }
+
+    footer {
+        padding: 1rem 0;
+        text-align: unset;
+    }
 }

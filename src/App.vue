@@ -4,9 +4,6 @@
             <img src="./assets/logotype.svg" class="logotype">
             <img src="./assets/logo.svg">
             <h1>
-                <span style="display: none;">
-                    Obsidian
-                </span>
                 {{ subtitle }}
             </h1>
         </header>
@@ -32,7 +29,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="" @click.prevent="showRecipe(beer.id)">Recipe 🍺</a>
+                        <a href="" @click.prevent="showRecipe(beer.id)">Show recipe</a>
                     </li>
                 </ul>
                 <ul class="beer-recipe" :id="beer.id">
@@ -60,18 +57,12 @@
             <ul>
                 <li>
                     <a href="https://github.com/pestbarn/obsidian">
-                        Github
+                        github
                     </a>
                 </li>
                 <li>
                     <a href="https://untappd.com/ObsidianCraftBrewery">
-                        Untappd
-                    </a>
-                </li>
-                <li>
-                    <a href="https://freepik.com/free-vector/shiny-geometric-shapes-pattern_1112735.htm"
-                        title="Background pattern 'Shiny geometric shapes pattern' created by @visnezh / Freepik">
-                        Pattern design
+                        untappd
                     </a>
                 </li>
             </ul>
@@ -125,7 +116,7 @@
     }
 </script>
 
-<style lang="scss">
+<style>
     @import url('https://fonts.googleapis.com/css?family=Allerta+Stencil|Lato');
     @import url('main.css');
 </style>
