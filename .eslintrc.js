@@ -33,6 +33,7 @@ module.exports = {
     'no-array-constructor': 'error',
     'no-new-object': 'error',
     'no-duplicate-imports': 'error',
+    'no-irregular-whitespace': 0,
     'no-multi-spaces': 'warn',
     'no-path-concat': 'error',
     'no-template-curly-in-string': 'warn',

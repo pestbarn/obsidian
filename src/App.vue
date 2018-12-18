@@ -73,7 +73,7 @@
                     </li>
                 </ul>
             </div>
-            <figure class="beer-label">
+            <figure class="beer-label" :data-label="beer.id">
                 <img :src="`dist/${beer.id}.png`">
             </figure>
         </article>
@@ -140,10 +140,24 @@ export default {
         },
         showRecipe(id) {
             const el = document.getElementById(id);
+            const label = document.querySelector(`[data-label="${id}"]`);
 
             el.style.display === 'block'
                 ? (el.style.display = 'none')
                 : (el.style.display = 'block');
+
+            if(document.body.offsetWidth >= 1024) {
+                const transform = (label.style.transform === '' || label.style.transform === 'scale(1)');
+
+                anime({
+                    targets: label,
+                    easing: 'easeOutElastic',
+                    elasticity: 600,
+                    duration: transform ? 1000 : 600,
+                    delay: transform ? 100 : 0,
+                    scale: transform ? 2 : 1
+                });
+            }
         }
     }
 };
