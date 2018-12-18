@@ -4,8 +4,8 @@
     grid-gap: 1rem;
     margin: 1.5rem 2.5rem 0;
     background: #fff;
-    padding-bottom: 1.5rem;
     border: 1px solid #1c140d;
+    align-self: start;
     box-shadow: 0.75rem 0.75rem 0 0 #1c140d;
 }
 
@@ -26,6 +26,7 @@
 .beer-recipe {
     text-align: left;
     font-size: .875rem;
+    padding-bottom: 1.5rem;
 }
 
 .beer-recipe {

@@ -16,6 +16,7 @@
   "devDependencies": {
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
+    "animejs": "^2.2.0",
     "babel-core": "*",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",

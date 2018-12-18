@@ -33,6 +33,8 @@ header {
 .logotype {
     margin: 0 auto;
     width: 50%;
+    min-height: 7rem;
+    max-height: 10rem;
 }
 
 #loading {
