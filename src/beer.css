@@ -1,0 +1,64 @@
+.beer {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-gap: 1rem;
+    align-items: start;
+    margin: 1.5rem 2.5rem 0;
+}
+
+@media screen and (max-width: 980px) {
+    .beer {
+        grid-template-columns: 100vw;
+        max-width: initial;
+        grid-gap: 0;
+    }
+}
+
+.beer > ul,
+.beer-recipe > ul {
+    padding: 0;
+}
+
+.beer hr {
+    grid-column: span 2;
+}
+
+@media screen and (max-width: 980px) {
+    .beer-content {
+        grid-row: 3;
+    }
+}
+
+.beer-label {
+    padding: 0 1rem 1rem;
+}
+
+.beer-label img {
+    border: 1px solid #cbe86b;
+}
+
+@media screen and (max-width: 980px) {
+    .beer-label {
+        max-width: 75vw;
+        justify-self: center;
+    }
+
+    .beer-content {
+        grid-row: 3;
+    }
+
+    .beer-info,
+    .beer-recipe {
+        padding: 0 3rem;
+    }
+}
+
+.beer-info,
+.beer-recipe {
+    text-align: left;
+    font-size: .875rem;
+}
+
+.beer-recipe {
+    display: none;
+}
