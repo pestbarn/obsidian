@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
@@ -74,6 +75,7 @@ module.exports = {
         hints: false
     },
     plugins: [
+        new UglifyJsPlugin(),
         new ExtractTextPlugin('main.css'),
         new VueLoaderPlugin()
     ],
