@@ -1,3 +1,5 @@
+@import "beer.css";
+
 :root {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -7,7 +9,19 @@
 
 body {
     background: #f2e9e1 url(assets/background.png) repeat;
-    overflow-x: hidden;
+}
+
+#app {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    text-align: center;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 25% 75%;
+    min-height: 100vh;
+
+    @media screen and (max-width: 980px) {
+        margin: 1.5rem 0 0;
+    }
 }
 
 header {
@@ -19,69 +33,54 @@ header {
     align-self: start;
 }
 
-.beer {
-    display: grid;
-    grid-template-columns: 60% 40%;
-    grid-gap: 1rem;
-    align-items: start;
-    margin: 1.5rem 2.5rem 0;
-}
+.logotype {
+    margin: 0 auto;
+    width: 50%;
 
-@media screen and (max-width: 980px) {
-    .beer {
-        grid-template-columns: 100vw;
-        max-width: initial;
-        grid-gap: 0;
+    @media screen and (max-width: 768px) {
+        margin-left: 0;
     }
 }
 
-.beer > ul,
-.beer-recipe > ul {
-    padding: 0;
-}
+h1 {
+    font: 1.5rem 'Allerta Stencil';
 
-.beer hr {
-    grid-column: span 2;
-}
-
-@media screen and (max-width: 980px) {
-    .beer-content {
-        grid-row: 3;
+    @media screen and (max-width: 980px) {
+        font-size: 1.75rem;
+        margin-top: .5rem;
     }
 }
 
-.beer-label {
-    padding: 0 1rem 1rem;
-}
+hr {
+    margin: 5rem 0;
+    border-color: #1c140d;
 
-.beer-label img {
-    border: 1px solid #cbe86b;
-}
-
-@media screen and (max-width: 980px) {
-    .beer-label {
-        max-width: 75vw;
-        justify-self: center;
-    }
-
-    .beer-content {
-        grid-row: 3;
-    }
-
-    .beer-info,
-    .beer-recipe {
-        padding: 0 3rem;
+    @media screen and (max-width: 980px) {
+        margin: 2rem 0;
     }
 }
 
-.beer-info,
-.beer-recipe {
-    text-align: left;
-    font-size: .875rem;
+a {
+    color: #1c140d;
+    font-weight: 600;
+
+    &:hover {
+        color: #1c140d;
+        cursor: pointer;
+    }
 }
 
-.beer-recipe {
-    display: none;
+ul {
+    list-style: none;
+    margin: 0;
+
+    li {
+        padding: .1rem 0;
+    }
+}
+
+img {
+    max-width: 100%;
 }
 
 footer {
