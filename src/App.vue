@@ -160,15 +160,12 @@ export default {
                     scale: transform ? 2 : 1
                 });
             }
-        },
-        track () {
-            this.$ga.page('/')
         }
     }
 };
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Allerta+Stencil|Lato');
-@import url('main.css');
+    @import url('https://fonts.googleapis.com/css?family=Allerta+Stencil|Lato');
+    @import url('main.css');
 </style>
