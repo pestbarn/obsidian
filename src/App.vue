@@ -160,6 +160,9 @@ export default {
                     scale: transform ? 2 : 1
                 });
             }
+        },
+        track () {
+            this.$ga.page('/')
         }
     }
 };
