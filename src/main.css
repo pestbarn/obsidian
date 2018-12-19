@@ -28,6 +28,13 @@ header {
     border: 1px solid #1c140d;
     box-shadow: .75rem .75rem 0 0 #1c140d;
     align-self: start;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+header,
+footer {
+    position: sticky;
 }
 
 .logotype {
@@ -39,6 +46,7 @@ header {
 
 #loading {
     margin: 1.5rem 2.5rem 0;
+    grid-row: 1;
 }
 
 h1 {
@@ -82,20 +90,19 @@ img {
 }
 
 footer {
-    margin-top: 2.5rem;
-    border-top: 1px solid #999;
-    background: #1c140d;
-    grid-column: 1 / -1;
-    align-self: end;
-    text-align: right;
-    padding: 1rem 2.5rem;
+    margin: 1.5rem 1.5rem 2.5rem 0;
+    background: #fff;
+    grid-column: 1;
+    align-self: start;
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid #1c140d;
+    box-shadow: .75rem .75rem 0 0 #1c140d, 0 .75rem 0 0 #1c140d;
 }
 
 footer a {
-    color: #fff;
+    color: #1c140d;
     text-transform: uppercase;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 footer a:hover {
@@ -126,10 +133,11 @@ footer li:last-child {
 
     #loading {
         margin: 0 auto;
+        grid-row: 2;
     }
 
     footer {
         padding: 1rem 0;
-        text-align: unset;
+        grid-row: 100;
     }
 }

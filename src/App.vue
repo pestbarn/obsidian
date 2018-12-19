@@ -30,6 +30,21 @@
             </h1>
         </header>
 
+        <footer>
+            <ul>
+                <li>
+                    <a href="https://github.com/pestbarn/obsidian">
+                        github
+                    </a>
+                </li>
+                <li>
+                    <a href="https://untappd.com/ObsidianCraftBrewery">
+                        untappd
+                    </a>
+                </li>
+            </ul>
+        </footer>
+
         <img src="./assets/loading.svg" id="loading">
 
         <article class="beer" v-for="beer in beers" :key="beer.id">
@@ -44,17 +59,18 @@
                         <strong>{{ beer.style }}</strong>
                     </li>
                     <li>{{ beer.abv }}</li>
-                    <li>&mdash;</li>
-                    <li>
+                    <li v-if="beer.ingredients">&mdash;</li>
+                    <li v-else>In production</li>
+                    <li v-if="beer.url">
                         <a :href="`https://untappd.com/b/${ beer.url }`">
                             View on Untappd<sup>↗</sup>
                         </a>
                     </li>
                     <li>
-                        <a href="" @click.prevent="showRecipe(beer.id)">Show recipe</a>
+                        <a href="" @click.prevent="showRecipe(beer.id)" v-if="beer.ingredients">Show/hide recipe</a>
                     </li>
                 </ul>
-                <ul class="beer-recipe" :id="beer.id">
+                <ul class="beer-recipe" :id="beer.id" v-if="beer.ingredients">
                     <li>
                         <strong>Ingredients:</strong>
                         <ul>
@@ -77,20 +93,6 @@
                 <img :src="`dist/${beer.id}.png`">
             </figure>
         </article>
-        <footer>
-            <ul>
-                <li>
-                    <a href="https://github.com/pestbarn/obsidian">
-                        github
-                    </a>
-                </li>
-                <li>
-                    <a href="https://untappd.com/ObsidianCraftBrewery">
-                        untappd
-                    </a>
-                </li>
-            </ul>
-        </footer>
     </div>
 </template>
 
@@ -117,7 +119,7 @@ export default {
             easing: 'easeInOutSine',
             strokeDashoffset: [anime.setDashoffset, 0],
             duration: 1500,
-            delay: 1500
+            delay: 2500
         });
     },
     methods: {
@@ -146,7 +148,7 @@ export default {
                 ? (el.style.display = 'none')
                 : (el.style.display = 'block');
 
-            if(document.body.offsetWidth >= 1024) {
+            if (document.body.offsetWidth >= 1024) {
                 const transform = (label.style.transform === '' || label.style.transform === 'scale(1)');
 
                 anime({

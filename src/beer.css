@@ -2,11 +2,25 @@
     display: grid;
     grid-template-columns: 60% 40%;
     grid-gap: 1rem;
-    margin: 1.5rem 2.5rem 0;
+    grid-column: 2;
+    margin: 1.5rem 2.5rem;
     background: #fff;
     border: 1px solid #1c140d;
-    align-self: start;
     box-shadow: 0.75rem 0.75rem 0 0 #1c140d;
+}
+
+#app article:nth-of-type(1) {
+    grid-row: 1;
+}
+
+@media screen and (max-width: 48rem) {
+    #app article {
+        grid-column: 1;
+    }
+
+    #app article:nth-of-type(1) {
+        grid-row: initial;
+    }
 }
 
 .beer > ul,
@@ -16,6 +30,11 @@
 
 .beer hr {
     grid-column: span 2;
+}
+
+.beer-label {
+    max-height: 100vh;
+    margin-bottom: 0;
 }
 
 .beer-label img {
@@ -37,6 +56,7 @@
     .beer-label {
         width: 10rem;
         justify-self: right;
+        align-self: start;
         transform-origin: top right;
     }
 }

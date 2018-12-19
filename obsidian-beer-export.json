@@ -1,0 +1,17 @@
+{
+  "01abbey" : {
+    "abv" : "8.5%",
+    "id" : "01.abbey.abattoir",
+    "ingredients" : [ null, "4 kg pilsner malt", "460 g Belgian candi sugar", "460 g Carapils", "57 g Hallertau or Tettnanger hops", "23 liters of water", "2 liter starter of WLP500 or Wyeast 1214" ],
+    "instructions" : [ null, "Place 11.5 liters of water in a sanitized container in the refrigerator", "Tie the Carapils malt in a large mesh grain bag. Place the bag in 11.5 liters of water in the pot and immerse the grain", "Begin to heat, and remove the grain bag when the temperature reaches 77°C", "Bring wort to a vigorous boil. As water is heating, slowly add 900 g of the pilsner malt. When the boil begins, add all the hops in a mesh bag", "After 45 minutes of boiling has passed, add remaining pilsner malt and the Belgian candi sugar, and stir well", "After total of 60 minutes of boil, remove from heat. After wort cools below 82°C, everything that touches it should be sanitized, and exposure to open air should be limited", "Cool wort in ice bath until it's below 29°C. Transfer to sanitized fermentor. Top off to make 19 liters using the refrigerated water", "Take a gravity reading with hydrometer - should be around 1.075", "Carefully pour yeast starter into cooled wort (should be below 21°C), and agitate vigorously. Cover fermentor with a sanitized stopper and airlock. Ferment in dark place, keep ambient temperature consistent, preferably between 20 and 23°C", "After primary fermentation is complete (after at least two consistent gravity readings), transfer all to pot and clean and sanitize your fermentor, and pour back for conditioning", "Bottle after another four to six weeks using enough priming sugar for a high level of carbonation" ],
+    "name" : "Abbey Abattoir",
+    "style" : "Belgian Tripel",
+    "url" : "https://untappd.com/b/obsidian-abbey-abattoir/2684494"
+  },
+  "02butcher" : {
+    "abv" : "8.0%",
+    "id" : "02.belgian.butcher",
+    "name" : "Belgian Butcher",
+    "style" : "Belgian IPA"
+  }
+}
