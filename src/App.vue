@@ -117,9 +117,11 @@ export default {
         anime({
             targets: '.logotype g path',
             easing: 'easeInOutSine',
-            strokeDashoffset: [anime.setDashoffset, 0],
-            duration: 1500,
-            delay: 2500
+            strokeDashoffset: [ anime.setDashoffset, 0 ],
+            duration: (el, i) => i * 250,
+            direction: 'alternate',
+            delay: (el, i) => i * 250,
+            loop: true
         });
     },
     methods: {
