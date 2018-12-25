@@ -63,7 +63,7 @@
                     <li v-else>In production</li>
                     <li v-if="beer.url">
                         <a :href="`https://untappd.com/b/${ beer.url }`">
-                            View on Untappd<sup>↗</sup>
+                            View on Untappd
                         </a>
                     </li>
                     <li>
