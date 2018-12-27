@@ -30,6 +30,7 @@ header {
     align-self: start;
     grid-column: 1;
     grid-row: 1;
+    z-index: 2;
 }
 
 header,
@@ -98,6 +99,7 @@ footer {
     padding: 1rem;
     border: 1px solid #1c140d;
     box-shadow: .75rem .75rem 0 0 #1c140d, 0 .75rem 0 0 #1c140d;
+    z-index: 1;
 }
 
 footer a {
@@ -120,6 +122,18 @@ footer li {
 
 footer li:last-child {
     padding-left: 1.5rem;
+}
+
+@media screen and (max-width: 64rem) {
+    #app {
+        grid-template-columns: 35% 65%;
+    }
+}
+
+@media screen and (min-width: 48rem) {
+    header {
+        top: 1.5rem;
+    }
 }
 
 @media screen and (max-width: 48rem) {
