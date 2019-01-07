@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     entry: './src/main.js',
@@ -54,7 +55,8 @@ module.exports = {
     plugins: [
         new UglifyJsPlugin(),
         new ExtractTextPlugin('main.css'),
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new Dotenv()
     ],
     devtool: '#eval-source-map'
 };

@@ -23,6 +23,7 @@
     "babel-preset-env": "*",
     "cross-env": "^5.2.0",
     "css-loader": "^2.0.0",
+    "dotenv-webpack": "^1.6.0",
     "eslint": "^5.10.0",
     "eslint-plugin-html": "^5.0.0",
     "eslint-plugin-vue": "^5.0.0",
