@@ -58,7 +58,7 @@
                     <li>
                         <strong>{{ beer.style }}</strong>
                     </li>
-                    <li>{{ beer.abv }}</li>
+                    <li>{{ beer.abv }}<span v-if="beer.ibu"> - {{ beer.ibu }} IBU</span></li>
                     <li v-if="beer.ingredients">&mdash;</li>
                     <li v-else>In production</li>
                     <li v-if="beer.url">
