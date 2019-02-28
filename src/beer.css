@@ -4,9 +4,9 @@
     grid-gap: 1rem;
     grid-column: 2;
     margin: 1.5rem 2.5rem;
-    background: #fff;
-    border: 1px solid #1c140d;
-    box-shadow: 0.75rem 0.75rem 0 0 #1c140d;
+    background: #916947;
+    border: 1px solid #1b140d;
+    box-shadow: 0.75rem 0.75rem 0 0 #1b140d;
 }
 
 #app article:nth-of-type(1) {
@@ -38,7 +38,7 @@
 }
 
 .beer-label img {
-    border: 1px solid #1c140d;
+    border: 1px solid #1b140d;
 }
 
 .beer-info,

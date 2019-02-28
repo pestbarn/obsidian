@@ -4,11 +4,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 16px;
-    color: #1c140d;
+    color: #1b140d;
 }
 
 body {
-    background: #f2e9e1 url(assets/background.png) repeat;
+    background: #2f2116 url(assets/background.png) repeat;
     margin: 0;
 }
 
@@ -22,11 +22,11 @@ body {
 }
 
 header {
-    background: #fff;
+    background: #181818;
     padding: 1.5rem 0;
     margin: 1.5rem;
-    border: 1px solid #1c140d;
-    box-shadow: .75rem .75rem 0 0 #1c140d;
+    border: 1px solid #1b140d;
+    box-shadow: .75rem .75rem 0 0 #1b140d;
     align-self: start;
     grid-column: 1;
     grid-row: 1;
@@ -52,13 +52,13 @@ footer {
 
 h1 {
     font: 1.5rem 'Allerta Stencil';
-    color: #1c140d;
+    color: #916947;
     margin: 0;
 }
 
 hr {
     margin: 5rem 0;
-    border-color: #1c140d;
+    border-color: #1b140d;
 
     @media screen and (max-width: 980px) {
         margin: 2rem 0;
@@ -66,14 +66,14 @@ hr {
 }
 
 a {
-    color: #1c140d;
+    color: #1b140d;
     text-decoration: none;
     font-weight: 600;
 }
 
 a:hover {
     color: #fff;
-    background: #1c140d;
+    background: #1b140d;
     cursor: pointer;
 }
 
@@ -92,24 +92,24 @@ img {
 
 footer {
     margin: 1.5rem 1.5rem 2.5rem 0;
-    background: #fff;
+    background: #916947;
     grid-column: 1;
     align-self: start;
     text-align: center;
     padding: 1rem;
-    border: 1px solid #1c140d;
-    box-shadow: .75rem .75rem 0 0 #1c140d, 0 .75rem 0 0 #1c140d;
+    border: 1px solid #1b140d;
+    box-shadow: .75rem .75rem 0 0 #1b140d, 0 .75rem 0 0 #1b140d;
     z-index: 1;
 }
 
 footer a {
-    color: #1c140d;
+    color: #1b140d;
     text-transform: uppercase;
 }
 
 footer a:hover {
-    background: #fff;
-    color: #1c140d;
+    background: #1b140d;
+    color: #fff;
 }
 
 footer ul {
