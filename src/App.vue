@@ -108,6 +108,7 @@
 import firebase from 'firebase';
 import * as config from '../firebase.config';
 import anime from 'animejs';
+import './prefixfree.min.js';
 
 firebase.initializeApp(config);
 

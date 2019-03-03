@@ -2,34 +2,16 @@
     display: grid;
     grid-template-columns: 60% 40%;
     grid-gap: 1rem;
-    grid-column: 2;
+    -ms-grid-columns: 60% 1rem 40%;
     margin: 1.5rem 2.5rem;
     background: #916947;
     border: 1px solid #1b140d;
     box-shadow: 0.75rem 0.75rem 0 0 #1b140d;
 }
 
-#app article:nth-of-type(1) {
-    grid-row: 1;
-}
-
-@media screen and (max-width: 48rem) {
-    #app article {
-        grid-column: 1;
-    }
-
-    #app article:nth-of-type(1) {
-        grid-row: initial;
-    }
-}
-
 .beer > ul,
 .beer-recipe > ul {
     padding: 0;
-}
-
-.beer hr {
-    grid-column: span 2;
 }
 
 .beer-label {
