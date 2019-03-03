@@ -54,9 +54,12 @@
                         <li>
                             <strong>{{ beer.style }}</strong>
                         </li>
-                        <li>{{ beer.abv }}<span v-if="beer.ibu"> - {{ beer.ibu }} IBU</span></li>
+                        <li>
+                            {{ typeof beer.abv === 'string' ? beer.abv : beer.abv[beer.currentbatch] }}
+                            <span v-if="beer.ibu"> - {{ typeof beer.abv === 'string' ? beer.ibu : beer.ibu[beer.currentbatch] }} IBU</span>
+                        </li>
                         <li v-if="beer.currentbatch">
-                            <em v-if="beer.currentbatch === 'x'">(one-off brew)</em>
+                            <em v-if="beer.onetime">(one-off brew)</em>
                             <em v-else>Current batch: {{ beer.currentbatch }}</em>
                         </li>
                         <li v-if="beer.ingredients">&mdash;</li>
@@ -74,21 +77,29 @@
                         <li>
                             <h3>
                                 How to brew the {{ beer.name }}
-                                <span v-if="beer.currentbatch !== 'x'">(batch {{ beer.currentbatch }})</span>
+                                <span v-if="beer.currentbatch !== '1'">(batch {{ beer.currentbatch }})</span>
                             </h3>
                         </li>
                         <li>
                             <strong>Ingredients:</strong>
-                            <ul>
-                                <li v-for="ingredient in beer.ingredients.slice(1)" :key="ingredient">
+                            <ul v-if="typeof beer.ingredients[1] === 'string'">
+                                <li v-for="ingredient in beer.ingredients" :key="ingredient">
                                     {{ ingredient }}
                                 </li>
+                            </ul>
+                            <ul v-else v-for="ingredient in beer.ingredients[beer.currentbatch]" :key="ingredient">
+                                <li>{{ ingredient }}</li>
                             </ul>
                         </li>
                         <li>
                             <strong>Instructions:</strong>
-                            <ol>
+                            <ol v-if="typeof beer.instructions[1] === 'string'">
                                 <li v-for="instruction in beer.instructions.slice(1)" :key="instruction">
+                                    {{ instruction }}
+                                </li>
+                            </ol>
+                            <ol v-else>
+                                <li v-for="instruction in beer.instructions[beer.currentbatch].slice(1)" :key="instruction">
                                     {{ instruction }}
                                 </li>
                             </ol>
