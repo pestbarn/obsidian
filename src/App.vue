@@ -22,71 +22,85 @@
             <h1>
                 {{ subtitle }}
             </h1>
-        </header>
 
-        <footer>
-            <ul>
-                <li>
-                    <a href="https://github.com/pestbarn/obsidian">
-                        github
-                    </a>
-                </li>
-                <li>
-                    <a href="https://untappd.com/ObsidianCraftBrewery">
-                        untappd
-                    </a>
-                </li>
-            </ul>
-        </footer>
-
-        <img src="./assets/loading.svg" id="loading">
-
-        <article class="beer" v-for="beer in beers" :key="beer.id">
-            <div class="beer-content">
-                <ul class="beer-info">
+            <footer>
+                <ul>
                     <li>
-                        <h2>
-                            {{ beer.name }}
-                        </h2>
-                    </li>
-                    <li>
-                        <strong>{{ beer.style }}</strong>
-                    </li>
-                    <li>{{ beer.abv }}<span v-if="beer.ibu"> - {{ beer.ibu }} IBU</span></li>
-                    <li v-if="beer.ingredients">&mdash;</li>
-                    <li v-else>In production</li>
-                    <li v-if="beer.url">
-                        <a :href="`https://untappd.com/b/${ beer.url }`">
-                            View on Untappd
+                        <a href="https://github.com/pestbarn/obsidian">
+                            github
                         </a>
                     </li>
                     <li>
-                        <a href="" @click.prevent="showRecipe(beer.id)" v-if="beer.ingredients">Show/hide recipe</a>
+                        <a href="https://untappd.com/ObsidianCraftBrewery">
+                            untappd
+                        </a>
                     </li>
                 </ul>
-                <ul class="beer-recipe" :id="beer.id" v-if="beer.ingredients">
-                    <li>
-                        <strong>Ingredients:</strong>
-                        <ul>
-                            <li v-for="ingredient in beer.ingredients.slice(1)" :key="ingredient">
-                                {{ ingredient }}
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <strong>Instructions:</strong>
-                        <ol>
-                            <li v-for="instruction in beer.instructions.slice(1)" :key="instruction">
-                                {{ instruction }}
-                            </li>
-                        </ol>
-                    </li>
-                </ul>
-            </div>
-            <figure class="beer-label" :data-label="beer.id">
-                <img :src="`dist/${beer.id}.png`">
-            </figure>
-        </article>
+            </footer>
+        </header>
+
+        <img src="./assets/loading.svg" id="loading">
+
+        <div class="main">
+
+            <article class="beer" v-for="beer in beers" :key="beer.id">
+                <div class="beer-content">
+                    <ul class="beer-info">
+                        <li>
+                            <h2>
+                                {{ beer.name }}
+                            </h2>
+                        </li>
+                        <li>
+                            <strong>{{ beer.style }}</strong>
+                        </li>
+                        <li>{{ beer.abv }}<span v-if="beer.ibu"> - {{ beer.ibu }} IBU</span></li>
+                        <li v-if="beer.currentbatch">
+                            <em v-if="beer.currentbatch === 'x'">(one-off brew)</em>
+                            <em v-else>Current batch: {{ beer.currentbatch }}</em>
+                        </li>
+                        <li v-if="beer.ingredients">&mdash;</li>
+                        <li v-else>In production</li>
+                        <li v-if="beer.url">
+                            <a :href="`https://untappd.com/b/${ beer.url }`">
+                                View on Untappd
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" @click.prevent="showRecipe(beer.id)" v-if="beer.ingredients">Show/hide recipe</a>
+                        </li>
+                    </ul>
+                    <ul class="beer-recipe" :id="beer.id" v-if="beer.ingredients">
+                        <li>
+                            <h3>
+                                How to brew the {{ beer.name }}
+                                <span v-if="beer.currentbatch !== 'x'">(batch {{ beer.currentbatch }})</span>
+                            </h3>
+                        </li>
+                        <li>
+                            <strong>Ingredients:</strong>
+                            <ul>
+                                <li v-for="ingredient in beer.ingredients.slice(1)" :key="ingredient">
+                                    {{ ingredient }}
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Instructions:</strong>
+                            <ol>
+                                <li v-for="instruction in beer.instructions.slice(1)" :key="instruction">
+                                    {{ instruction }}
+                                </li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+                <figure class="beer-label" :data-label="beer.id">
+                    <img :src="`dist/${beer.id}.png`">
+                </figure>
+            </article>
+
+        </div>
     </div>
 </template>
 

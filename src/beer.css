@@ -98,8 +98,11 @@
         margin-top: 1rem;
     }
 
-    .beer-recipe ul,
-    .beer-recipe ol {
+    .beer-recipe ul {
         padding: 0;
+    }
+
+    .beer-recipe ol {
+        padding: 1rem 1rem 0;
     }
 }

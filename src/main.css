@@ -23,7 +23,7 @@ body {
 
 header {
     background: #181818;
-    padding: 1.5rem 0;
+    padding: 1.5rem 0 0;
     margin: 1.5rem;
     border: 1px solid #1b140d;
     box-shadow: .75rem .75rem 0 0 #1b140d;
@@ -91,14 +91,13 @@ img {
 }
 
 footer {
-    margin: 1.5rem 1.5rem 2.5rem 0;
+    margin: 1.5rem 0 0;
     background: #916947;
     grid-column: 1;
     align-self: start;
     text-align: center;
     padding: 1rem;
     border: 1px solid #1b140d;
-    box-shadow: .75rem .75rem 0 0 #1b140d, 0 .75rem 0 0 #1b140d;
     z-index: 1;
 }
 
