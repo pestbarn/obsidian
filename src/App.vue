@@ -56,7 +56,7 @@
                         </li>
                         <li>
                             {{ typeof beer.abv === 'string' ? beer.abv : beer.abv[beer.currentbatch] }}
-                            <span v-if="beer.ibu"> - {{ typeof beer.abv === 'string' ? beer.ibu : beer.ibu[beer.currentbatch] }} IBU</span>
+                            <span v-if="beer.ibu" style="display: none;"> - {{ typeof beer.abv === 'string' ? beer.ibu : beer.ibu[beer.currentbatch] }} IBU</span>
                         </li>
                         <li v-if="beer.currentbatch">
                             <em v-if="beer.onetime">(one-off brew)</em>
