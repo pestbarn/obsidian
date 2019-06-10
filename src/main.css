@@ -8,7 +8,7 @@
 }
 
 body {
-    background: #2f2116 url(assets/background.png) repeat;
+    background: #302015 url(assets/background.png) repeat;
     margin: 0;
 }
 
@@ -55,7 +55,7 @@ footer {
 
 h1 {
     font: 1.5rem 'Allerta Stencil';
-    color: #916947;
+    color: #a26737;
     margin: 0;
 }
 
@@ -86,7 +86,7 @@ img {
 
 footer {
     margin: 1.5rem 0 0;
-    background: #916947;
+    background: #a26737;
     align-self: start;
     text-align: center;
     padding: 1rem;
