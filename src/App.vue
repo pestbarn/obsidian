@@ -62,6 +62,10 @@
                             <em v-if="beer.onetime">(one-off brew)</em>
                             <em v-else>Current batch: {{ beer.currentbatch }}</em>
                         </li>
+                        <li v-if="beer.description">
+                            &mdash;
+                            <p>{{ beer.description }}</p>
+                        </li>
                         <li v-if="beer.ingredients">&mdash;</li>
                         <li v-else>In production</li>
                         <li v-if="beer.url">
@@ -76,7 +80,7 @@
                     <ul class="beer-recipe" :id="beer.id" v-if="beer.ingredients">
                         <li>
                             <h3>
-                                How to brew the {{ beer.name }}
+                                How to brew {{ beer.name }}
                                 <span v-if="beer.currentbatch !== '1'">(batch {{ beer.currentbatch }})</span>
                             </h3>
                         </li>
@@ -91,7 +95,7 @@
                                 <li>{{ ingredient }}</li>
                             </ul>
                         </li>
-                        <li>
+                        <li v-if="beer.instructions">
                             <strong>Instructions:</strong>
                             <ol v-if="typeof beer.instructions[1] === 'string'">
                                 <li v-for="instruction in beer.instructions.slice(1)" :key="instruction">
