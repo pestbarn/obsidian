@@ -1,4 +1,4 @@
-@import "beer.css";
+@import "./normalize.css";
 
 :root {
     -webkit-font-smoothing: antialiased;
@@ -8,7 +8,7 @@
 }
 
 body {
-    background: #302015 url(assets/background.png) repeat;
+    background: #302015 url('./assets/background.png') repeat;
     margin: 0;
 }
 
@@ -152,3 +152,5 @@ footer li:last-child {
         padding: 1rem 0;
     }
 }
+
+@import "./beer.css";
