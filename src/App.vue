@@ -111,7 +111,7 @@
                     </ul>
                 </div>
                 <figure class="beer-label" :data-label="beer.id">
-                    <img :src="`dist/${beer.id}.png`">
+                    <img :src="`/src/assets/${beer.id}.png`">
                 </figure>
             </article>
 
