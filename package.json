@@ -7,8 +7,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --inline",
     "deploy": "npm run build && firebase deploy",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "update:packages": "node wipe-dependencies.js && rm -rf node_modules && npm update --save && npm update --save-dev"
+    "lint": "eslint {./src/main.js,./*.js} --fix",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {},
   "devDependencies": {
