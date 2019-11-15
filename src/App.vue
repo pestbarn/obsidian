@@ -18,7 +18,7 @@
                     </g>
                 </g>
             </svg>
-            <img src="./assets/logo.svg">
+            <img src="assets/logo.svg">
             <h1>
                 {{ subtitle }}
             </h1>
@@ -39,7 +39,7 @@
             </footer>
         </header>
 
-        <img src="./assets/loading.svg" id="loading">
+        <img src="assets/loading.svg" id="loading">
 
         <div class="main">
 
@@ -120,19 +120,24 @@
 </template>
 
 <script>
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/database';
 import * as config from '../firebase.config';
 import anime from 'animejs';
 import './prefixfree.min.js';
+import images from 'assets/*.png';
 
-firebase.initializeApp(config);
+if (!firebase.apps.length) {
+    firebase.initializeApp(config);
+}
 
 export default {
     name: 'App',
     data() {
         return {
             subtitle: 'Craft Brewery',
-            beers: []
+            beers: [],
+            images: images
         };
     },
     mounted() {
@@ -191,5 +196,5 @@ export default {
 
 <style>
     @import url('https://fonts.googleapis.com/css?family=Allerta+Stencil|Lato');
-    @import url('main.css');
+    @import url('./main.css');
 </style>

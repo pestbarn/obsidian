@@ -1,18 +1,9 @@
-# obsidian
+# Obsidian Craft Brewery
 
-> A Vue.js project
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-```
-
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+A project built using:
+* [Vue](https://vuejs.org)
+* [Parcel](https://parceljs.org)
+* [Firebase](https://firebase.google.com)
+* [Normalize](https://github.com/necolas/normalize.css)
+* [-prefix-free](https://leaverou.github.io/prefixfree)
+* [PostCSS](https://postcss.org)
