@@ -24,10 +24,17 @@
         "eslint-plugin-vue": "^5.2.2",
         "firebase": "^6.1.0",
         "parcel-bundler": "^1.12.4",
+        "parcel-plugin-clean-dist": "0.0.6",
         "vue": "^2.6.10",
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
         "vue-hot-reload-api": "^2.3.4"
+    },
+    "vue": {
+        "runtimeCompiler": true
+    },
+    "alias": {
+        "vue": "./node_modules/vue/dist/vue.common.js"
     }
 }
