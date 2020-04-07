@@ -11,23 +11,23 @@
         "lint": "eslint {./src/main.js,./src/*.vue} --fix"
     },
     "devDependencies": {
-        "@babel/core": "^7.4.5",
-        "@babel/preset-env": "^7.4.5",
-        "@vue/component-compiler-utils": "^3.0.0",
-        "animejs": "^3.0.1",
-        "babel-core": "*",
-        "babel-eslint": "^10.0.1",
-        "babel-preset-env": "*",
+        "@babel/core": "^7.9.0",
+        "@babel/preset-env": "^7.9.0",
+        "@vue/component-compiler-utils": "^3.1.1",
+        "animejs": "^3.1.0",
+        "babel-core": "^6.26.3",
+        "babel-eslint": "^10.1.0",
+        "babel-preset-env": "^1.7.0",
         "cssnano": "^4.1.10",
-        "eslint": "^5.16.0",
-        "eslint-plugin-html": "^5.0.5",
-        "eslint-plugin-vue": "^5.2.2",
-        "firebase": "^6.1.0",
-        "firebase-admin": "^8.7.0",
+        "eslint": "^6.8.0",
+        "eslint-plugin-html": "^6.0.1",
+        "eslint-plugin-vue": "^6.2.2",
+        "firebase": "^7.13.2",
+        "firebase-admin": "^8.10.0",
         "parcel-bundler": "^1.12.4",
         "parcel-plugin-clean-dist": "0.0.6",
-        "vue": "^2.6.10",
-        "vue-template-compiler": "^2.6.10"
+        "vue": "^2.6.11",
+        "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
         "vue-hot-reload-api": "^2.3.4"

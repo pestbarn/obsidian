@@ -42,8 +42,7 @@
         <img src="assets/loading.svg" id="loading">
 
         <div class="main">
-
-            <article class="beer" v-for="beer in beers" :key="beer.id">
+            <article class="beer" v-for="beer in beers.slice().reverse()" :key="beer.id">
                 <div class="beer-content">
                     <ul class="beer-info">
                         <li>
@@ -114,7 +113,6 @@
                     <img :src="`${images[beer.id]}`">
                 </figure>
             </article>
-
         </div>
     </div>
 </template>
