@@ -67,10 +67,6 @@
         display: inline-block;
     }
 
-    .beer-info li:nth-child(4) {
-        visibility: hidden;
-    }
-
     .beer-info li:nth-child(5) {
         float: right;
     }
