@@ -67,7 +67,7 @@
         display: inline-block;
     }
 
-    .beer-info li:nth-child(5) {
+    .beer-info li.view-on-untappd {
         float: right;
     }
 

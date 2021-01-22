@@ -66,7 +66,7 @@
                         </li>
                         <li v-if="beer.ingredients">&mdash;</li>
                         <li v-else>In production</li>
-                        <li v-if="beer.url">
+                        <li v-if="beer.url" class="view-on-untappd">
                             <a :href="`https://untappd.com/b/${ beer.url }`">
                                 View on Untappd
                             </a>
