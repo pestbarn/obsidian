@@ -16,7 +16,7 @@
 
 .beer-label {
     max-height: 100vh;
-    margin-bottom: 0;
+    margin: .75em 2em .5em;
 }
 
 .beer-label img {
