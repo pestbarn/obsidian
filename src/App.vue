@@ -109,7 +109,10 @@
                     </ul>
                 </div>
                 <figure class="beer-label" :data-label="beer.id">
-                    <img :src="`${images[beer.id]}`">
+                    <VuePureLightbox
+                        :thumbnail="`${images[beer.id]}`"
+                        :images="[`${fullImage[beer.id]}`]"
+                    ></VuePureLightbox>
                 </figure>
             </article>
         </div>
@@ -117,12 +120,14 @@
 </template>
 
 <script>
+import VuePureLightbox from 'vue-pure-lightbox';
 import firebase from 'firebase/app';
 import 'firebase/database';
 import * as config from '../firebase.config';
 import anime from 'animejs';
 import './prefixfree.min.js';
 import images from 'assets/*.png';
+import fullImage from 'assets/*.full.jpg';
 
 if (!firebase.apps.length) {
     firebase.initializeApp(config);
@@ -134,8 +139,12 @@ export default {
         return {
             subtitle: 'Craft Brewery',
             beers: [],
-            images: images
+            images: images,
+            fullImage: fullImage
         };
+    },
+    components: {
+        VuePureLightbox
     },
     mounted() {
         this.loadBeers();
