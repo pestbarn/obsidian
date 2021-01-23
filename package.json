@@ -30,6 +30,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "parcel": "^1.12.4",
         "vue-hot-reload-api": "^2.3.4"
     },
     "vue": {
