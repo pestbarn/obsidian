@@ -56,7 +56,9 @@
                             </a>
                         </li>
                         <li>
-                            <a href="" @click.prevent="showRecipe(beer.id)" v-if="beer.ingredients">Show/hide recipe</a>
+                            <a href="" @click.prevent="showRecipe(beer.id)" v-if="beer.ingredients">
+                                {{ showHideRecipe }} recipe
+                            </a>
                         </li>
                     </ul>
                     <ul class="beer-recipe" :id="beer.id" v-if="beer.ingredients">
@@ -98,6 +100,9 @@
                         :images="[`${fullImage[beer.id]}`]"
                     />
                 </figure>
+                <div class="preload-image" style="display: none; visibility: hidden;">
+                    <img :src="`${fullImage[beer.id]}`">
+                </div>
             </article>
         </div>
     </div>
@@ -129,7 +134,8 @@ export default {
             subtitle: 'Craft Brewery',
             beers: [],
             images: images,
-            fullImage: fullImage
+            fullImage: fullImage,
+            showHideRecipe: 'Show'
         };
     },
     mounted() {
@@ -163,11 +169,16 @@ export default {
         },
         showRecipe(id) {
             const el = document.getElementById(id);
-            const label = document.querySelector(`[data-label="${id}"]`);
+            const label = document.querySelector(`[data-label="${id}"] img`);
+            const showHide = this.showHideRecipe;
 
             el.style.display === 'block'
                 ? (el.style.display = 'none')
                 : (el.style.display = 'block');
+
+            showHide === 'Show'
+                ? this.showHideRecipe = 'Hide'
+                : this.showHideRecipe = 'Show';
 
             if (document.body.offsetWidth >= 1024) {
                 const transform = (label.style.transform === '' || label.style.transform === 'scale(1)');

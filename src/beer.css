@@ -19,8 +19,13 @@
     margin: .75em 2em .5em;
 }
 
+.beer-label a:hover {
+    background: none;
+}
+
 .beer-label img {
     border: 1px solid #1b140d;
+    transform-origin: top right;
 }
 
 .beer-info,
@@ -40,6 +45,16 @@
         justify-self: right;
         align-self: start;
         transform-origin: top right;
+    }
+
+    .beer-info li.view-on-untappd,
+    .beer-info li.view-on-untappd + li {
+        display: inline;
+    }
+
+    .beer-info li.view-on-untappd + li::before {
+        content: '|';
+        margin: 0 .25rem;
     }
 }
 
