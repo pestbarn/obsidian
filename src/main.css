@@ -17,8 +17,8 @@ body {
     text-align: center;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 25% 75%;
-    -ms-grid-columns: 25% 75%;
+    grid-template-columns: 30% 70%;
+    -ms-grid-columns: 30% 70%;
     min-height: 100vh;
 }
 
@@ -41,7 +41,7 @@ footer {
     position: sticky;
 }
 
-.logotype {
+.logo {
     margin: 0 auto;
     width: 50%;
     min-height: 7rem;
@@ -57,6 +57,7 @@ h1 {
     font: 1.5rem 'Allerta Stencil';
     color: #a26737;
     margin: 0;
+    cursor: default;
 }
 
 a {
@@ -130,6 +131,10 @@ footer li:last-child {
 @media screen and (min-width: 48rem) {
     header {
         top: 1.5rem;
+    }
+
+    .logotype {
+        max-width: 15rem;
     }
 }
 

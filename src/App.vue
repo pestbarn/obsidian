@@ -2,9 +2,9 @@
     <div id="app">
         <header>
             <ObsidianLogo></ObsidianLogo>
-            <img src="assets/logo.svg">
+            <img src="assets/logotype.svg" class="logotype">
             <h1>
-                {{ subtitle }}
+                Craft Brewery
             </h1>
 
             <footer>
@@ -131,7 +131,6 @@ export default {
     },
     data() {
         return {
-            subtitle: 'Craft Brewery',
             beers: [],
             images: images,
             fullImage: fullImage,
@@ -142,7 +141,7 @@ export default {
         this.loadBeers();
 
         anime({
-            targets: '.logotype path',
+            targets: '.logo path',
             easing: 'easeInOutSine',
             strokeDashoffset: [ anime.setDashoffset, 0 ],
             duration: (el, i) => i * 750,
