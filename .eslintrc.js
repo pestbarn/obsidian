@@ -15,6 +15,7 @@ module.exports = {
         firebase: true,
         module: true
     },
+    eslintIgnore: ['index.html'],
     rules: {
         'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
         indent: ['error', 4],

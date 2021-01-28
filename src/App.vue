@@ -111,8 +111,8 @@ import 'firebase/database';
 import * as config from '../firebase.config';
 import anime from 'animejs';
 import './prefixfree.min.js';
-import images from 'assets/*.png';
-import fullImage from 'assets/*.full.jpg';
+import images from 'assets/labels/*.square.jpg';
+import fullImage from 'assets/labels/*.full.jpg';
 
 if (!firebase.apps.length) {
     firebase.initializeApp(config);
