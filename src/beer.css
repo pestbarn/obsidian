@@ -1,6 +1,6 @@
 .beer {
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 55% 45%;
     grid-gap: 1rem;
     -ms-grid-columns: 60% 1rem 40%;
     margin: 1.5rem 2.5rem;
