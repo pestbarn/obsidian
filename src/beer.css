@@ -19,6 +19,10 @@
     padding: 0;
 }
 
+.beer-recipe ul {
+    padding-bottom: 1rem;
+}
+
 .beer-label {
     max-height: 100vh;
     margin: .75em 2em .5em;
@@ -126,11 +130,11 @@
         margin-top: 1rem;
     }
 
-    .beer-recipe ul {
-        padding: 0;
+    .beer-recipe ul, .beer-recipe ol {
+        padding: 1rem 1rem;
     }
 
-    .beer-recipe ol {
-        padding: 1rem 1rem 0;
+    .beer-recipe ul {
+        padding-bottom: 0;
     }
 }
