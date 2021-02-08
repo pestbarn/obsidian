@@ -36,6 +36,16 @@ header {
     z-index: 2;
 }
 
+header a[class^="router-link"] {
+    color: #a26737;
+    font-weight: 400;
+}
+
+header a[class^="router-link"]:hover {
+    color: #a26737;
+    background: none;
+}
+
 header,
 footer {
     position: sticky;

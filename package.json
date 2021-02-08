@@ -28,9 +28,11 @@
         "parcel-plugin-clean-dist": "0.0.6",
         "vue": "^2.6.12",
         "vue-pure-lightbox": "^3.1.2",
+        "vue-router": "^3.5.1",
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "components": "^0.1.0",
         "parcel": "^1.12.4",
         "vue-hot-reload-api": "^2.3.4"
     },
