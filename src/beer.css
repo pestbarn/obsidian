@@ -140,6 +140,10 @@
         grid-template-columns: 1fr;
     }
 
+    .beer-recipe {
+        margin-top: 1rem;
+    }
+
     .beer-info li.view-on-untappd,
     .beer-info li.view-on-untappd + li {
         display: inline;

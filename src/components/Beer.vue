@@ -33,12 +33,14 @@
                     <li>
                         <strong>Ingredients:</strong>
                         <ul v-if="typeof beer.ingredients[1] === 'string'">
-                            <li v-for="ingredient in beer.ingredients" :key="ingredient">
+                            <li v-for="ingredient in beer.ingredients.slice(1)" :key="ingredient">
                                 {{ ingredient }}
                             </li>
                         </ul>
                         <ul v-else>
-                            <li v-for="ingredient in beer.ingredients[beer.currentbatch]" :key="ingredient">{{ ingredient }}</li>
+                            <li v-for="ingredient in beer.ingredients[beer.currentbatch].slice(1)" :key="ingredient">
+                                {{ ingredient }}
+                            </li>
                         </ul>
                     </li>
                     <li v-if="beer.instructions">
