@@ -14,7 +14,6 @@ body {
 
 #app {
     font-family: 'Lato', Helvetica, Arial, sans-serif;
-    text-align: center;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 30% 70%;
@@ -34,6 +33,7 @@ header {
     -ms-grid-column: 1;
     -ms-grid-row: 1;
     z-index: 2;
+    text-align: center;
 }
 
 header a[class^="router-link"] {

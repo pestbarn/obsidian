@@ -16,13 +16,9 @@
                     </li>
                     <li>
                         <strong>{{ beer.style }}</strong>
-                    </li>
-                    <li>
-                        {{ typeof beer.abv === 'string' ? beer.abv : beer.abv[beer.currentbatch] }}
-                        <span v-if="beer.ibu"> - {{ typeof beer.abv === 'string' ? beer.ibu : beer.ibu[beer.currentbatch] }} IBU</span>
-                    </li>
-                    <li v-if="beer.currentbatch">
-                        <em v-if="!beer.onetime">Current batch: {{ beer.currentbatch }}</em>
+                        <span v-if="beer.currentbatch">|
+                            <em v-if="!beer.onetime">Current batch: {{ beer.currentbatch }}</em>
+                        </span>
                     </li>
                     <li v-if="beer.description">
                         <p>{{ beer.description }}</p>
@@ -33,7 +29,7 @@
                         </a>
                     </li>
                 </ul>
-                <ul class="beer-recipe" style="display: block;" :id="beer.id" v-if="beer.ingredients">
+                <ul class="beer-recipe" :id="beer.id" v-if="beer.ingredients">
                     <li>
                         <strong>Ingredients:</strong>
                         <ul v-if="typeof beer.ingredients[1] === 'string'">
@@ -41,8 +37,8 @@
                                 {{ ingredient }}
                             </li>
                         </ul>
-                        <ul v-else v-for="ingredient in beer.ingredients[beer.currentbatch]" :key="ingredient">
-                            <li>{{ ingredient }}</li>
+                        <ul v-else>
+                            <li v-for="ingredient in beer.ingredients[beer.currentbatch]" :key="ingredient">{{ ingredient }}</li>
                         </ul>
                     </li>
                     <li v-if="beer.instructions">
@@ -59,7 +55,10 @@
                         </ol>
                     </li>
                 </ul>
-                <ul class="beer-info">
+
+                <BeerStats :beer="beer"></BeerStats>
+
+                <ul class="beer-return-link">
                     <li>
                         <router-link to="/">
                             &laquo; Home
@@ -77,6 +76,7 @@ import 'firebase/database';
 import * as config from '/firebase.config';
 import fullImage from '../assets/labels/*.full.jpg';
 import VuePureLightbox from 'vue-pure-lightbox';
+import BeerStats from './BeerStats.vue';
 
 if (!firebase.apps.length) {
     firebase.initializeApp(config);
@@ -85,7 +85,8 @@ if (!firebase.apps.length) {
 export default {
     name: 'Beer',
     components: {
-        VuePureLightbox
+        VuePureLightbox,
+        BeerStats
     },
     data() {
         return {

@@ -49,6 +49,8 @@ module.exports = {
         'vue/max-attributes-per-line': 0,
         'vue/attributes-order': 0,
         'vue/singleline-html-element-content-newline': 0,
-        'vue/html-self-closing': 0
+        'vue/html-self-closing': 0,
+        'vue/require-prop-type-constructor': 0,
+        'vue/require-default-prop': 0
     }
 };

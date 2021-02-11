@@ -12,20 +12,13 @@
                     </li>
                     <li>
                         <strong>{{ beer.style }}</strong>
-                    </li>
-                    <li>
-                        {{ typeof beer.abv === 'string' ? beer.abv : beer.abv[beer.currentbatch] }}
-                        <span v-if="beer.ibu"> - {{ typeof beer.abv === 'string' ? beer.ibu : beer.ibu[beer.currentbatch] }} IBU</span>
-                    </li>
-                    <li v-if="beer.currentbatch">
-                        <em v-if="!beer.onetime">Current batch: {{ beer.currentbatch }}</em>
+                        <span v-if="beer.currentbatch">|
+                            <em v-if="!beer.onetime">Current batch: {{ beer.currentbatch }}</em>
+                        </span>
                     </li>
                     <li v-if="beer.description">
-                        &mdash;
                         <p>{{ beer.description }}</p>
                     </li>
-                    <li v-if="beer.ingredients">&mdash;</li>
-                    <li v-else>In production</li>
                     <li v-if="beer.url" class="view-on-untappd">
                         <a :href="`https://untappd.com/b/${ beer.url }`">
                             View on Untappd
@@ -44,6 +37,9 @@
                     :images="[`${fullImage[beer.id]}`]"
                 />
             </figure>
+
+            <BeerStats :beer="beer"></BeerStats>
+
             <div class="preload-image" style="display: none; visibility: hidden;">
                 <img :src="`${fullImage[beer.id]}`">
             </div>
@@ -53,6 +49,7 @@
 
 <script>
 import VuePureLightbox from 'vue-pure-lightbox';
+import BeerStats from './BeerStats.vue';
 import firebase from 'firebase/app';
 import 'firebase/database';
 import * as config from '/firebase.config';
@@ -66,7 +63,8 @@ if (!firebase.apps.length) {
 export default {
     name: 'Home',
     components: {
-        VuePureLightbox
+        VuePureLightbox,
+        BeerStats
     },
     data() {
         return {

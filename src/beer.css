@@ -42,17 +42,70 @@
 }
 
 .beer-info,
-.beer-recipe {
+.beer-recipe,
+.beer-return-link {
     text-align: left;
     font-size: .875rem;
+}
+
+.beer-recipe,
+.beer-return-link {
     padding-bottom: 1.5rem;
 }
 
-.beer-recipe {
-    display: none;
+.beer-stats {
+    display: grid;
+    grid-gap: .25rem;
+    grid-column: 1 / -1;
+    justify-items: center;
+    margin: 0 2rem 1rem 2rem;
+    max-width: calc(7 * 5rem);
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.beer-stats li {
+    color: #fff;
+    padding: .5rem;
+    font-size: .75rem;
+    transition: .25s opacity;
+}
+
+.beer-stats li:hover {
+    opacity: 1;
+}
+
+.beer-stats li p {
+    margin: 0;
+    width: 3.5rem;
+    height: 3.5rem;
+    cursor: default;
+    line-height: 1.4;
+    display: inline-grid;
+    background: #181818;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    border: 1px solid #1b140d;
+    box-shadow: .3rem .3rem 0 0 #1b140d;
+    text-shadow: 1px 1px 2px #a26737;
+}
+
+.beer-stats li span {
+    display: block;
+}
+
+.beer-stats li abbr {
+    cursor: help;
+    text-decoration: none;
+    border-bottom: 1px dotted #a26737;
 }
 
 @media screen and (min-width: 48rem) {
+    .beer-detailed-view .beer-content {
+        display: grid;
+        grid-template-columns: 75% 25%;
+    }
+
     .beer-label {
         width: 10rem;
         justify-self: right;
@@ -64,11 +117,27 @@
         width: auto;
         justify-self: center;
         margin: 0;
+        grid-column: 1 / -1;
     }
 
     .beer-detailed-view .beer-label img {
         border: 0;
         border-bottom: 1px solid #1b140d;
+    }
+
+    .beer-detailed-view ul,
+    .beer-detailed-view ol {
+        grid-column: 1;
+    }
+
+    .beer-stats li {
+        opacity: .5;
+    }
+
+    .beer-detailed-view .beer-stats {
+        grid-row: 2 / 4;
+        grid-column: 2;
+        grid-template-columns: 1fr;
     }
 
     .beer-info li.view-on-untappd,
@@ -136,5 +205,27 @@
 
     .beer-recipe ul {
         padding-bottom: 0;
+    }
+
+    .beer-stats {
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+    .beer-stats li {
+        display: inline-block;
+        margin-bottom: 1rem;
+    }
+
+    .beer-return-link {
+        padding: 1rem 0 1.5rem 0;
+    }
+}
+
+@media screen and (max-width: 64rem) {
+    .beer-stats {
+        margin-left: 0;
+        grid-template-columns: repeat(4, 1fr);
     }
 }
