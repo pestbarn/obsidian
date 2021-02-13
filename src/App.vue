@@ -56,7 +56,3 @@ export default {
     }
 };
 </script>
-
-<style>
-    @import url('./main.css');
-</style>

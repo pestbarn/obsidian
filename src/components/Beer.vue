@@ -118,7 +118,7 @@ export default {
                     if (document.getElementById('loading')) document.getElementById('loading').remove();
                 });
             });
-        },
+        }
     }
 };
 </script>
