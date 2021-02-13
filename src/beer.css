@@ -59,8 +59,8 @@
     grid-column: 1 / -1;
     justify-items: center;
     margin: 0 2rem 1rem 2rem;
-    max-width: calc(7 * 5rem);
-    grid-template-columns: repeat(7, 1fr);
+    max-width: calc(8 * 5rem);
+    grid-template-columns: repeat(8, 1fr);
 }
 
 .beer-stats li {

@@ -14,12 +14,6 @@
         </li>
         <li>
             <p>
-                <span>{{ batch.ibu }}</span>
-                <abbr title="International Bitterness Units">IBU</abbr>
-            </p>
-        </li>
-        <li>
-            <p>
                 <span>{{ gravity(batch.og) }}</span>
                 <abbr title="Original Gravity">OG</abbr>
             </p>
@@ -32,8 +26,14 @@
         </li>
         <li>
             <p>
-                <span>{{ batch.bu_gu }}</span>
-                <abbr title="Ratio of Bitterness Units to Gravity Units">BU:GU</abbr>
+                <span>{{ batch.ibu }}</span>
+                <abbr title="International Bitterness Units">IBU</abbr>
+            </p>
+        </li>
+        <li>
+            <p>
+                <span>{{ bu_gu(batch.ibu, batch.og) }}</span>
+                <abbr title="Ratio, Bitterness Units to Gravity Units">BU:GU</abbr>
             </p>
         </li>
         <li>
@@ -114,6 +114,9 @@ export default Vue.component('BeerStats', {
         },
         plato: function(og, fg) {
             return ((76.08 * (og - fg) / (1.775 - og)) * (fg / 0.794)).toFixed(1);
+        },
+        bu_gu: function(ibu, og) {
+            return (ibu / ((og - 1) * 1000)).toFixed(2);
         }
     }
 });
