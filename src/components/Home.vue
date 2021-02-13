@@ -13,7 +13,7 @@
                     <li>
                         <strong>{{ beer.style }}</strong>
                         <span v-if="beer.currentbatch">|
-                            <em v-if="!beer.onetime">Current batch: {{ beer.currentbatch }}</em>
+                            <em>Current batch: {{ beer.currentbatch }}</em>
                         </span>
                     </li>
                     <li v-if="beer.description">
