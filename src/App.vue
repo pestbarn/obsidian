@@ -51,7 +51,7 @@ export default {
             easing: 'easeInOutSine',
             strokeDashoffset: [ anime.setDashoffset, 0 ],
             duration: (el, i) => i * 750,
-            delay: 1500
+            delay: 500
         });
     }
 };

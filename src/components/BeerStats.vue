@@ -2,8 +2,14 @@
     <ul class="beer-stats">
         <li>
             <p>
-                <span>{{ batch.abv }}%</span>
+                <span>{{ abv(batch.og, batch.fg) }}%</span>
                 <abbr title="Alcohol By Volume">ABV</abbr>
+            </p>
+        </li>
+        <li>
+            <p>
+                <span>{{ plato(batch.og, batch.fg) }}</span>
+                <abbr title="Plato Gravity Scale">°P</abbr>
             </p>
         </li>
         <li>
@@ -14,13 +20,13 @@
         </li>
         <li>
             <p>
-                <span>{{ batch.og.toFixed(3) }}</span>
+                <span>{{ gravity(batch.og) }}</span>
                 <abbr title="Original Gravity">OG</abbr>
             </p>
         </li>
         <li>
             <p>
-                <span>{{ batch.fg.toFixed(3) }}</span>
+                <span>{{ gravity(batch.fg) }}</span>
                 <abbr title="Final Gravity">FG</abbr>
             </p>
         </li>
@@ -99,6 +105,15 @@ export default Vue.component('BeerStats', {
             rgb.g = Math.round(rgb.g * sat + gray);
             rgb.b = Math.round(rgb.b * sat + gray);
             return rgb;
+        },
+        gravity: function(x) {
+            return x.toFixed(3);
+        },
+        abv: function(og, fg) {
+            return ((og - fg) * 131.25).toFixed(1);
+        },
+        plato: function(og, fg) {
+            return ((76.08 * (og - fg) / (1.775 - og)) * (fg / 0.794)).toFixed(1);
         }
     }
 });
