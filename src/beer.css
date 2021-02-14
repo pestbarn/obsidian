@@ -213,9 +213,9 @@
     }
 
     .beer-stats {
-        display: block;
         margin: 0;
         padding: 0;
+	grid-template-columns: repeat(4, 1fr);
     }
 
     .beer-stats li {
