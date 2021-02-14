@@ -234,3 +234,5 @@
         grid-template-columns: repeat(4, 1fr);
     }
 }
+
+@import "./beer-ingredients.css";

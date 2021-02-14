@@ -29,7 +29,67 @@
                         </a>
                     </li>
                 </ul>
-                <ul class="beer-recipe" :id="beer.id" v-if="beer.ingredients">
+
+                <div class="beer-ingredients" v-if="beer.recipe">
+                    <div class="beer-water">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th colspan="10">Water</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(waters, i) in beer.recipe.waters.slice(1)" :key="i">
+                                    <td v-for="(water, j) in waters" :key="j">{{ water }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="beer-fermentables">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th colspan="10">Fermentables</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(fermentables, i) in beer.recipe.fermentables.slice(1)" :key="i">
+                                    <td v-for="(fermentable, j) in fermentables" :key="j">{{ fermentable }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="beer-hops">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th colspan="10">Hops</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(hops, i) in beer.recipe.hops.slice(1)" :key="i">
+                                    <td v-for="(hop, j) in hops" :key="j">{{ hop }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="beer-yeast">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Fermentation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(fermentation, i) in beer.recipe.fermentation.slice(1)" :key="i">
+                                    <td v-for="(object, j) in fermentation" :key="j">{{ object }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <ul class="beer-recipe" :id="beer.id" v-else-if="beer.ingredients">
                     <li>
                         <strong>Ingredients:</strong>
                         <ul v-if="typeof beer.ingredients[1] === 'string'">

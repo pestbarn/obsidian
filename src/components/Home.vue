@@ -89,9 +89,9 @@ export default {
                     );
                 });
 
-                Promise.all(promises).then(() =>
-                    document.getElementById('loading').remove()
-                );
+                Promise.all(promises).then(() => {
+                    if (document.getElementById('loading')) document.getElementById('loading').remove();
+                });
             });
         }
     }
