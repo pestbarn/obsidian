@@ -1,0 +1,183 @@
+.beer {
+    display: grid;
+    grid-template-columns: 55% 45%;
+    grid-gap: 1rem;
+    -ms-grid-columns: 60% 1rem 40%;
+    margin: 1.5rem 2.5rem;
+    background: #a26737;
+    border: 1px solid #1b140d;
+    box-shadow: 0.75rem 0.75rem 0 0 #1b140d;
+}
+
+.beer-detailed-view {
+    grid-template-columns: 100%;
+    -ms-grid-columns: 100%;
+}
+
+.beer,
+.beer-recipe {
+    > ul {
+        padding: 0;
+    }
+}
+
+.beer-recipe ul {
+    padding-bottom: 1rem;
+}
+
+.beer-label {
+    max-height: 100vh;
+    margin: .75em 2em .5em;
+
+    a:hover {
+        background: none;
+    }
+
+    img {
+        border: 1px solid #1b140d;
+        transform-origin: top right;
+    }
+}
+
+.beer-detailed-view .beer-label {
+    max-height: initial;
+}
+
+.beer-info,
+.beer-recipe,
+.beer-return-link {
+    text-align: left;
+    font-size: .875rem;
+}
+
+.beer-recipe,
+.beer-return-link {
+    padding-bottom: 1.5rem;
+}
+
+.beer-return-link {
+    align-self: end;
+    text-transform: capitalize;
+
+    li {
+        padding: .1rem 0;
+        display: inline-block;
+
+        &::after {
+            content: '|';
+            padding: 0 .5rem;
+        }
+
+        &:last-child::after {
+            content: '';
+        }
+    }
+}
+
+@media screen and (min-width: 48rem) {
+    .beer-label {
+        width: 10rem;
+        justify-self: right;
+        align-self: start;
+        transform-origin: top right;
+    }
+
+    .beer-detailed-view {
+        .beer-content {
+            display: grid;
+            grid-template-columns: 75% 25%;
+        }
+
+        .beer-label {
+            width: auto;
+            justify-self: center;
+            margin: 0;
+            grid-column: 1 / -1;
+
+            img {
+                border: 0;
+                border-bottom: 1px solid #1b140d;
+            }
+        }
+
+        ul,
+        ol {
+            grid-column: 1;
+        }
+    }
+
+    .beer-recipe {
+        margin-top: 1rem;
+    }
+
+    .beer-info {
+        li.view-on-untappd,
+        li.view-on-untappd + li {
+            display: inline;
+        }
+
+        li.view-on-untappd + li::before {
+            content: '|';
+            margin: 0 .25rem;
+        }
+    }
+}
+
+@media screen and (max-width: 48rem) {
+    .beer {
+        grid-template-columns: 100%;
+        grid-gap: 2rem;
+        margin: 1.5rem;
+        padding: 0 1.5rem 1.5rem;
+    }
+
+    .beer-label {
+        max-width: 75vw;
+        justify-self: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    .beer-detailed-view .beer-label {
+        max-width: initial;
+        max-height: initial;
+        margin: 0 -1.5rem;
+
+        img {
+            border: 0;
+            border-bottom: 1px solid #1b140d;
+        }
+    }
+
+    .beer-info,
+    .beer-recipe {
+        padding: 0;
+    }
+
+    .beer-info li.view-on-untappd {
+        float: right;
+    }
+
+    .beer-detailed-view .beer-info li.view-on-untappd {
+        float: none;
+    }
+
+    .beer-recipe,
+    .beer-recipe > li:nth-child(2) {
+        margin-top: 1rem;
+    }
+
+    .beer-recipe {
+        ul, ol {
+            padding: 1rem 1rem;
+        }
+
+        ul {
+            padding-bottom: 0;
+        }
+    }
+
+    .beer-return-link {
+        padding: 1rem 0 1.5rem 0;
+    }
+}

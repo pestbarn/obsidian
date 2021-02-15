@@ -30,7 +30,7 @@
         <img src="assets/loading.svg" id="loading">
 
         <div class="main">
-            <router-view :key="$route.params"></router-view>
+            <router-view :key="$route.params.slug"></router-view>
         </div>
     </div>
 </template>

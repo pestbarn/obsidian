@@ -6,7 +6,7 @@ Vue.use(VueRouter);
 
 import Home from './components/Home.vue';
 import Beer from './components/Beer.vue';
-import './main.css';
+import './main.scss';
 
 const routes = [
     {

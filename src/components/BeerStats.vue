@@ -53,6 +53,8 @@
 
 <script>
 import Vue from 'vue';
+import '../beer-ingredients.scss';
+import '../beer-stats.scss';
 
 export default Vue.component('BeerStats', {
     props: {

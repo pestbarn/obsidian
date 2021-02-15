@@ -34,16 +34,16 @@ header {
     -ms-grid-row: 1;
     z-index: 2;
     text-align: center;
-}
 
-header a[class^="router-link"] {
-    color: #a26737;
-    font-weight: 400;
-}
+    a[class^="router-link"] {
+        color: #a26737;
+        font-weight: 400;
+    }
 
-header a[class^="router-link"]:hover {
-    color: #a26737;
-    background: none;
+    a[class^="router-link"]:hover {
+        color: #a26737;
+        background: none;
+    }
 }
 
 header,
@@ -74,12 +74,12 @@ a {
     color: #1b140d;
     text-decoration: none;
     font-weight: 600;
-}
 
-a:hover {
-    color: #fff;
-    background: #1b140d;
-    cursor: pointer;
+    &:hover {
+        color: #fff;
+        background: #1b140d;
+        cursor: pointer;
+    }
 }
 
 ul {
@@ -103,28 +103,28 @@ footer {
     padding: 1rem;
     border: 1px solid #1b140d;
     z-index: 1;
-}
 
-footer a {
-    color: #1b140d;
-    text-transform: uppercase;
-}
+    a {
+        color: #1b140d;
+        text-transform: uppercase;
+    }
 
-footer a:hover {
-    background: #1b140d;
-    color: #fff;
-}
+    &:hover {
+        background: #1b140d;
+        color: #fff;
+    }
 
-footer ul {
-    padding: 0;
-}
+    ul {
+        padding: 0;
 
-footer li {
-    display: inline-block;
-}
+        li {
+            display: inline-block;
 
-footer li:last-child {
-    padding-left: 1.5rem;
+            &:last-child {
+                padding-left: 1.5rem;
+            }
+        }
+    }
 }
 
 .main {
@@ -168,5 +168,4 @@ footer li:last-child {
     }
 }
 
-@import "./beer.css";
 @import "./VuePureLightbox.css"

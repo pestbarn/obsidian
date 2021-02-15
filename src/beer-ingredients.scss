@@ -1,0 +1,131 @@
+.beer-ingredients {
+    font-size: .9rem;
+    display: grid;
+    margin: 1.25rem 0 1rem 2.25rem;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+
+    table {
+        width: 100%;
+        border-spacing: 0;
+        border: 1px solid #1b140d;
+        box-shadow: .3rem .3rem 0 0 #1b140d;
+    }
+
+    thead {
+        color: #a26737;
+        background: #181818;
+    }
+
+    th {
+        padding: 1rem 0;
+        font-size: .75rem;
+        line-height: 0;
+        text-transform: uppercase;
+    }
+
+    tbody {
+        padding: .25rem;
+        display: block;
+
+        tr {
+            vertical-align: top;
+            display: grid;
+        }
+
+        td {
+            padding: .25rem .5rem;
+
+            &:first-child {
+                min-width: 2.25rem;
+            }
+        }
+    }
+
+    > div table {
+        transition: .25s background;
+    }
+
+    .beer-water table {
+        background: rgba(66,91,191,.15);
+
+        &:hover {
+            background: rgba(66,91,191,.5);
+        }
+
+        tbody tr {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    .beer-fermentables table {
+        background: rgba(162,162,55,.15);
+
+        &:hover {
+            background: rgba(162,162,55,.5);
+        }
+
+        tbody tr {
+            grid-template-columns: 1fr 2fr;
+        }
+    }
+
+    .beer-hops table {
+        background: rgba(66,161,55,.15);
+
+        &:hover {
+            background: rgba(66,161,55,.5);
+        }
+
+        tbody tr {
+            grid-template-columns: 15% 31% 26% 28%;
+        }
+    }
+
+    .beer-yeast table {
+        background: rgba(162,77,55,.15);
+
+        &:hover {
+            background: rgba(162,77,55,.5);
+        }
+
+        tbody tr {
+            grid-template-columns: 1fr 2fr;
+        }
+    }
+
+    .beer-additions table {
+        background: rgba(24,24,24,.15);
+
+        &:hover {
+            background: rgba(24,24,24,.25);
+        }
+
+        tbody tr {
+            grid-template-columns: 15% 40% 20% 25%;
+        }
+    }
+
+    .beer-hops,
+    .beer-additions {
+        tbody tr td:last-child {
+            text-align: right;
+        }
+    }
+}
+
+@media screen and (max-width: 48rem) {
+    .beer-ingredients {
+        margin: 1.25rem 0;
+        grid-template-columns: 1fr;
+    }
+
+    .beer-ingredients .beer-water tbody tr {
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .beer-ingredients .beer-hops tbody tr,
+    .beer-ingredients .beer-additions tbody tr {
+        grid-template-columns: 2fr 4fr 2fr 2fr;
+    }
+}

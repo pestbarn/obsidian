@@ -165,6 +165,7 @@ import * as config from '/firebase.config';
 import fullImage from '../assets/labels/*.full.jpg';
 import VuePureLightbox from 'vue-pure-lightbox';
 import BeerStats from './BeerStats.vue';
+import '../beer.scss';
 
 if (!firebase.apps.length) {
     firebase.initializeApp(config);
