@@ -75,7 +75,8 @@
     grid-template-columns: 15% 40% 20% 25%;
 }
 
-.beer-ingredients .beer-hops tbody tr td:last-child {
+.beer-ingredients .beer-hops tbody tr td:last-child,
+.beer-ingredients .beer-additions tbody tr td:last-child {
     text-align: right;
 }
 
@@ -97,7 +98,8 @@
         grid-template-columns: 1fr 2fr;
     }
 
-    .beer-ingredients .beer-hops tbody tr {
-        grid-template-columns: 2fr 3fr 3fr 4fr;
+    .beer-ingredients .beer-hops tbody tr,
+    .beer-ingredients .beer-additions tbody tr {
+        grid-template-columns: 2fr 4fr 2fr 2fr;
     }
 }
