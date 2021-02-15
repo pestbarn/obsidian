@@ -51,6 +51,10 @@
     background: rgba(162,77,55,.15);
 }
 
+.beer-ingredients .beer-additions table {
+    background: rgba(24,24,24,.15);
+}
+
 .beer-ingredients .beer-water tbody tr {
     grid-template-columns: 1fr 1fr;
 }
@@ -65,6 +69,10 @@
 
 .beer-ingredients .beer-yeast tbody tr {
     grid-template-columns: 1fr 2fr;
+}
+
+.beer-ingredients .beer-additions tbody tr {
+    grid-template-columns: 15% 40% 20% 25%;
 }
 
 .beer-ingredients .beer-hops tbody tr td:last-child {

@@ -31,7 +31,7 @@
                 </ul>
 
                 <div class="beer-ingredients" v-if="beer.recipe">
-                    <div class="beer-water">
+                    <div class="beer-water" v-if="beer.recipe[beer.currentbatch ? beer.currentbatch : 1].waters">
                         <table>
                             <thead>
                                 <tr>
@@ -45,7 +45,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="beer-fermentables">
+                    <div class="beer-fermentables" v-if="beer.recipe[beer.currentbatch ? beer.currentbatch : 1].fermentables">
                         <table>
                             <thead>
                                 <tr>
@@ -59,7 +59,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="beer-hops">
+                    <div class="beer-hops" v-if="beer.recipe[beer.currentbatch ? beer.currentbatch : 1].hops">
                         <table>
                             <thead>
                                 <tr>
@@ -73,7 +73,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="beer-yeast">
+                    <div class="beer-yeast" v-if="beer.recipe[beer.currentbatch ? beer.currentbatch : 1].fermentation">
                         <table>
                             <thead>
                                 <tr>
@@ -83,6 +83,20 @@
                             <tbody>
                                 <tr v-for="(fermentation, i) in beer.recipe[beer.currentbatch ? beer.currentbatch : 1].fermentation.slice(1)" :key="i">
                                     <td v-for="(object, j) in fermentation" :key="j">{{ object }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="beer-additions" v-if="beer.recipe[beer.currentbatch ? beer.currentbatch : 1].additions">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Additions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(additions, i) in beer.recipe[beer.currentbatch ? beer.currentbatch : 1].additions.slice(1)" :key="i">
+                                    <td v-for="(addition, j) in additions" :key="j">{{ addition }}</td>
                                 </tr>
                             </tbody>
                         </table>
