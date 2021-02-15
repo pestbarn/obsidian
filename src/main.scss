@@ -42,7 +42,7 @@ header {
 
     a[class^="router-link"]:hover {
         color: #a26737;
-        background: none;
+        text-decoration: none;
     }
 }
 
@@ -76,8 +76,7 @@ a {
     font-weight: 600;
 
     &:hover {
-        color: #fff;
-        background: #1b140d;
+        text-decoration: underline;
         cursor: pointer;
     }
 }
@@ -107,11 +106,6 @@ footer {
     a {
         color: #1b140d;
         text-transform: uppercase;
-    }
-
-    &:hover {
-        background: #1b140d;
-        color: #fff;
     }
 
     ul {

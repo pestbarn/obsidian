@@ -29,10 +29,6 @@
     max-height: 100vh;
     margin: .75em 2em .5em;
 
-    a:hover {
-        background: none;
-    }
-
     img {
         border: 1px solid #1b140d;
         transform-origin: top right;
@@ -72,6 +68,10 @@
             content: '';
         }
     }
+}
+
+.beer-meta * {
+    display: block;
 }
 
 @media screen and (min-width: 48rem) {

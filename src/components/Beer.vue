@@ -14,12 +14,12 @@
                             {{ beer.name }}
                         </h2>
                     </li>
-                    <li>
+                    <li class="beer-meta">
                         <strong>{{ beer.style }}</strong>
-                        <span v-if="beer.currentbatch">|
-                            Current batch: {{ beer.currentbatch }}
+                        <span v-if="beer.currentbatch">
+                            Batch no: {{ beer.currentbatch }}
                         </span>
-                        <span v-if="beer.brewday">|
+                        <span v-if="beer.brewday">
                             Brewday: {{ beer.brewday[beer.currentbatch ? beer.currentbatch : 1].date }}
                         </span>
                     </li>
