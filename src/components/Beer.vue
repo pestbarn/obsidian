@@ -39,7 +39,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="(waters, i) in beer.recipe.waters.slice(1)" :key="i">
+                                <tr v-for="(waters, i) in beer.recipe[beer.currentbatch ? beer.currentbatch : 1].waters.slice(1)" :key="i">
                                     <td v-for="(water, j) in waters" :key="j">{{ water }}</td>
                                 </tr>
                             </tbody>
@@ -53,7 +53,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="(fermentables, i) in beer.recipe.fermentables.slice(1)" :key="i">
+                                <tr v-for="(fermentables, i) in beer.recipe[beer.currentbatch ? beer.currentbatch : 1].fermentables.slice(1)" :key="i">
                                     <td v-for="(fermentable, j) in fermentables" :key="j">{{ fermentable }}</td>
                                 </tr>
                             </tbody>
@@ -67,7 +67,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="(hops, i) in beer.recipe.hops.slice(1)" :key="i">
+                                <tr v-for="(hops, i) in beer.recipe[beer.currentbatch ? beer.currentbatch : 1].hops.slice(1)" :key="i">
                                     <td v-for="(hop, j) in hops" :key="j">{{ hop }}</td>
                                 </tr>
                             </tbody>
@@ -81,7 +81,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="(fermentation, i) in beer.recipe.fermentation.slice(1)" :key="i">
+                                <tr v-for="(fermentation, i) in beer.recipe[beer.currentbatch ? beer.currentbatch : 1].fermentation.slice(1)" :key="i">
                                     <td v-for="(object, j) in fermentation" :key="j">{{ object }}</td>
                                 </tr>
                             </tbody>
