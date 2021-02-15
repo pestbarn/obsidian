@@ -53,6 +53,25 @@
     padding-bottom: 1.5rem;
 }
 
+.beer-return-link {
+    align-self: end;
+    text-transform: capitalize;
+}
+
+.beer-return-link li {
+    padding: .1rem 0;
+    display: inline-block;
+}
+
+.beer-return-link li::after {
+    content: '|';
+    padding: 0 .5rem;
+}
+
+.beer-return-link li:last-child::after {
+    content: '';
+}
+
 .beer-stats {
     display: grid;
     grid-gap: .25rem;
@@ -136,7 +155,7 @@
 
     .beer-detailed-view .beer-stats {
         margin-top: .75rem;
-        grid-row: 2 / 6;
+        grid-row: 2 / 5;
         grid-column: 2;
         grid-template-columns: 1fr;
     }

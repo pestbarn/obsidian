@@ -135,9 +135,21 @@
                 <BeerStats :beer="beer"></BeerStats>
 
                 <ul class="beer-return-link">
+                    <li v-if="slugs[slugs.indexOf(beer.slug) + 1]">
+                        <router-link :to="{ name: 'beer', params: { slug: slugs[slugs.indexOf(beer.slug) + 1] }}">
+                            &laquo;
+                            {{ slugs[slugs.indexOf(beer.slug) + 1].replace('-', ' ') }}
+                        </router-link>
+                    </li>
                     <li>
                         <router-link to="/">
-                            &laquo; Home
+                            Home
+                        </router-link>
+                    </li>
+                    <li v-if="slugs[slugs.indexOf(beer.slug) - 1]">
+                        <router-link :to="slugs[slugs.indexOf(beer.slug) - 1]">
+                            {{ slugs[slugs.indexOf(beer.slug) - 1].replace('-', ' ') }}
+                            &raquo;
                         </router-link>
                     </li>
                 </ul>
@@ -167,7 +179,8 @@ export default {
     data() {
         return {
             beers: [],
-            fullImage: fullImage
+            fullImage: fullImage,
+            slugs: []
         };
     },
     mounted() {
@@ -181,6 +194,7 @@ export default {
                 let promises = [];
 
                 snap.forEach(beer => {
+                    this.slugs.push(beer.val().slug);
                     if (beer.val().slug !== slug) return;
                     promises.push(
                         this.beers.push(beer.val())
