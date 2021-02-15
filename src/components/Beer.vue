@@ -17,7 +17,10 @@
                     <li>
                         <strong>{{ beer.style }}</strong>
                         <span v-if="beer.currentbatch">|
-                            <em>Current batch: {{ beer.currentbatch }}</em>
+                            Current batch: {{ beer.currentbatch }}
+                        </span>
+                        <span v-if="beer.brewday">|
+                            Brewday: {{ beer.brewday[beer.currentbatch ? beer.currentbatch : 1].date }}
                         </span>
                     </li>
                     <li v-if="beer.description">
