@@ -34,7 +34,8 @@
     },
     "dependencies": {
         "parcel": "^1.12.4",
-        "vue-hot-reload-api": "^2.3.4"
+        "vue-hot-reload-api": "^2.3.4",
+        "vue-meta": "^2.4.0"
     },
     "vue": {
         "runtimeCompiler": true

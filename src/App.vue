@@ -45,6 +45,11 @@ export default {
     components: {
         ObsidianLogo
     },
+    metaInfo: {
+        titleTemplate: (titleChunk) => {
+            return titleChunk ? `${titleChunk} - Obsidian Craft Brewery` : 'Obsidian Craft Brewery';
+        }
+    },
     mounted() {
         anime({
             targets: '.logo path',

@@ -181,7 +181,13 @@ export default {
         return {
             beers: [],
             fullImage: fullImage,
-            slugs: []
+            slugs: [],
+            beerName: []
+        };
+    },
+    metaInfo() {
+        return {
+            title: this.beerName
         };
     },
     mounted() {
@@ -198,7 +204,8 @@ export default {
                     this.slugs.push(beer.val().slug);
                     if (beer.val().slug !== slug) return;
                     promises.push(
-                        this.beers.push(beer.val())
+                        this.beers.push(beer.val()),
+                        this.beerName.push(beer.val().name)
                     );
                 });
 
