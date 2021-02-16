@@ -19,11 +19,6 @@
                     <li v-if="beer.description">
                         <p>{{ beer.description }}</p>
                     </li>
-                    <li v-if="beer.url" class="view-on-untappd">
-                        <a :href="`https://untappd.com/b/${ beer.url }`">
-                            View on Untappd
-                        </a>
-                    </li>
                     <li>
                         <router-link :to="{ name: 'beer', params: { slug: beer.slug }}">
                             View recipe
