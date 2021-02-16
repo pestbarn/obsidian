@@ -8,9 +8,7 @@
     grid-template-columns: repeat(8, 1fr);
 
     li {
-        color: #fff;
         padding: .5rem;
-        font-size: .75rem;
         transition: .25s opacity;
 
         &:hover {
@@ -23,6 +21,7 @@
             height: 3.5rem;
             cursor: default;
             line-height: 1.4;
+            font-size: .85rem;
             display: inline-grid;
             background: #181818;
             align-items: center;
@@ -35,11 +34,15 @@
 
         span {
             display: block;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.75);
         }
 
         abbr {
             cursor: help;
+            font-size: .75rem;
             text-decoration: none;
+            color: rgba(255, 255, 255, 1);
             border-bottom: 1px dotted #a26737;
         }
     }
@@ -51,10 +54,13 @@
     }
 
     .beer-detailed-view .beer-stats {
-        margin-top: .75rem;
-        grid-row: 2 / 5;
+        margin-top: 0.75rem;
+        grid-row: 2/5;
         grid-column: 2;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        margin: .75rem 1rem 0 0;
+        grid-gap: 1rem 0;
+        align-content: start;
 
         li {
             opacity: 1;
