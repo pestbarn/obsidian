@@ -195,15 +195,34 @@ export default {
     },
     mounted() {
         this.loadBeer(this.$route.params.slug);
+        window.scrollTo(0, 0);
     },
     methods: {
         loadBeer(slug) {
+            if (sessionStorage.beerList) {
+                const beerList = JSON.parse(sessionStorage.getItem('beerList'));
+
+                beerList.filter(beer => {
+                    this.slugs.push(beer.slug);
+                    if (beer.slug === slug) {
+                        this.beers.push(beer);
+                        this.beerName.push(beer.name);
+                    }
+                });
+
+                if (!this.beers.length) this.$router.push('/');
+                if (document.getElementById('loading')) document.getElementById('loading').remove();
+                return;
+            }
+
             const db = firebase.database();
 
             db.ref('/').once('value').then(snap => {
                 let promises = [];
+                let allBeers = [];
 
                 snap.forEach(beer => {
+                    allBeers.push(beer.val());
                     this.slugs.push(beer.val().slug);
                     if (beer.val().slug !== slug) return;
                     promises.push(
@@ -211,6 +230,8 @@ export default {
                         this.beerName.push(beer.val().name)
                     );
                 });
+
+                sessionStorage.setItem('beerList', JSON.stringify(allBeers));
 
                 Promise.all(promises).then(() => {
                     if (!this.beers.length) this.$router.push('/');

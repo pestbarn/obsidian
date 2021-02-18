@@ -70,9 +70,16 @@ export default {
     },
     mounted() {
         this.loadBeers();
+        window.scrollTo(0, 0);
     },
     methods: {
         loadBeers() {
+            if (sessionStorage.beerList) {
+                this.beers = JSON.parse(sessionStorage.getItem('beerList'));
+                if (document.getElementById('loading')) document.getElementById('loading').remove();
+                return;
+            }
+
             const db = firebase.database();
 
             db.ref('/').once('value').then(snap => {
@@ -83,6 +90,8 @@ export default {
                         this.beers.push(beer.val())
                     );
                 });
+
+                sessionStorage.setItem('beerList', JSON.stringify(this.beers));
 
                 Promise.all(promises).then(() => {
                     if (document.getElementById('loading')) document.getElementById('loading').remove();
