@@ -7,6 +7,9 @@
     color: #1b140d;
 }
 
+::-moz-selection { background: #1b140d; color: #fff; text-shadow: none; }
+::selection { background: #1b140d; color: #fff; text-shadow: none; }
+
 body {
     background: #302015 url('./assets/background.png') repeat;
     margin: 0;
@@ -94,6 +97,17 @@ img {
     max-width: 100%;
 }
 
+.preload-image {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
 footer {
     margin: 1.5rem 0 0;
     background: #a26737;
@@ -161,5 +175,3 @@ footer {
         padding: 1rem 0;
     }
 }
-
-@import "./VuePureLightbox.css"

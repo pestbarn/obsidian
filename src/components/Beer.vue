@@ -3,10 +3,7 @@
         <article class="beer beer-detailed-view" v-for="beer in beers.slice().reverse()" :key="beer.id">
             <div class="beer-content">
                 <figure class="beer-label" :data-label="beer.id">
-                    <VuePureLightbox
-                        :thumbnail="`${fullImage[beer.id]}`"
-                        :images="[`${fullImage[beer.id]}`]"
-                    />
+                    <img :src="fullImage[beer.id]">
                 </figure>
                 <ul class="beer-info">
                     <li>
@@ -166,7 +163,6 @@ import firebase from 'firebase/app';
 import 'firebase/database';
 import * as config from '/firebase.config';
 import fullImage from '../assets/labels/*.full.jpg';
-import VuePureLightbox from 'vue-pure-lightbox';
 import BeerStats from './BeerStats.vue';
 import '../beer.scss';
 
@@ -177,7 +173,6 @@ if (!firebase.apps.length) {
 export default {
     name: 'Beer',
     components: {
-        VuePureLightbox,
         BeerStats
     },
     data() {

@@ -27,15 +27,14 @@
                 </ul>
             </div>
             <figure class="beer-label" :data-label="beer.id">
-                <VuePureLightbox
-                    :thumbnail="`${images[beer.id]}`"
-                    :images="[`${fullImage[beer.id]}`]"
-                />
+                <router-link :to="{ name: 'beer', params: { slug: beer.slug }}">
+                    <img :src="images[beer.id]">
+                </router-link>
             </figure>
 
             <BeerStats :beer="beer"></BeerStats>
 
-            <div class="preload-image" style="display: none; visibility: hidden;">
+            <div class="preload-image">
                 <img :src="`${fullImage[beer.id]}`">
             </div>
         </article>
@@ -43,7 +42,6 @@
 </template>
 
 <script>
-import VuePureLightbox from 'vue-pure-lightbox';
 import BeerStats from './BeerStats.vue';
 import firebase from 'firebase/app';
 import 'firebase/database';
@@ -58,7 +56,6 @@ if (!firebase.apps.length) {
 export default {
     name: 'Home',
     components: {
-        VuePureLightbox,
         BeerStats
     },
     data() {
