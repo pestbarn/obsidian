@@ -8,4 +8,3 @@ A project built using:
 * [Firebase](https://firebase.google.com)
 * [Normalize](https://github.com/necolas/normalize.css)
 * [-prefix-free](https://leaverou.github.io/prefixfree)
-* [PostCSS](https://postcss.org)
