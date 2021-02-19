@@ -136,7 +136,7 @@
 
                 <ul class="beer-return-link">
                     <li v-if="slugs[slugs.indexOf(beer.slug) + 1]">
-                        <router-link :to="{ name: 'beer', params: { slug: slugs[slugs.indexOf(beer.slug) + 1] }}">
+                        <router-link ref="prevLink" :to="slugs[slugs.indexOf(beer.slug) + 1]">
                             &laquo;
                             {{ slugs[slugs.indexOf(beer.slug) + 1].replace('-', ' ') }}
                         </router-link>
@@ -147,7 +147,7 @@
                         </router-link>
                     </li>
                     <li v-if="slugs[slugs.indexOf(beer.slug) - 1]">
-                        <router-link :to="slugs[slugs.indexOf(beer.slug) - 1]">
+                        <router-link ref="nextLink" :to="slugs[slugs.indexOf(beer.slug) - 1]">
                             {{ slugs[slugs.indexOf(beer.slug) - 1].replace('-', ' ') }}
                             &raquo;
                         </router-link>

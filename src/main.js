@@ -2,8 +2,10 @@ import Vue from 'vue';
 import App from './App.vue';
 import VueRouter from 'vue-router';
 import Meta from 'vue-meta';
+import Vue2TouchEvents from 'vue2-touch-events';
 
 Vue.use(VueRouter);
+Vue.use(Vue2TouchEvents);
 Vue.use(Meta, {
     refreshOnceOnNavigation: true
 });

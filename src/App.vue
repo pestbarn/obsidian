@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div id="app" v-touch:swipe="swipeHandler">
         <header>
             <ObsidianLogo></ObsidianLogo>
             <router-link to="/">
@@ -30,7 +30,7 @@
         <img src="assets/loading.svg" id="loading">
 
         <div class="main">
-            <router-view :key="$route.params.slug"></router-view>
+            <router-view :key="$route.params.slug" ref="routerView"></router-view>
         </div>
     </div>
 </template>
@@ -58,6 +58,22 @@ export default {
             duration: (el, i) => i * 750,
             delay: 500
         });
+    },
+    methods: {
+        swipeHandler(dir) {
+            // Navigate directly from beer to beer with swipes
+
+            if (!this.$route.name) return;
+
+            let goTo;
+
+            if (dir === 'left') goTo = this.$refs.routerView.$refs.nextLink;
+            if (dir === 'right') goTo = this.$refs.routerView.$refs.prevLink;
+
+            if (!goTo) return;
+
+            this.$router.push(goTo[0].to);
+        }
     }
 };
 </script>
