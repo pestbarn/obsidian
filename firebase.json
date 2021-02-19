@@ -12,6 +12,12 @@
       ".firebaserc",
       ".git",
       ".gitignore"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
     ]
   }
 }

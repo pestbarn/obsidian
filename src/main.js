@@ -5,7 +5,9 @@ import Meta from 'vue-meta';
 import Vue2TouchEvents from 'vue2-touch-events';
 
 Vue.use(VueRouter);
-Vue.use(Vue2TouchEvents);
+Vue.use(Vue2TouchEvents, {
+    swipeTolerance: 120
+});
 Vue.use(Meta, {
     refreshOnceOnNavigation: true
 });
@@ -31,6 +33,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
+    mode: 'history',
     routes
 });
 
