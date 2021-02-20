@@ -20,7 +20,7 @@ module.exports = {
         indent: ['error', 4],
         'linebreak-style': ['error', 'unix'],
         quotes: ['warn', 'single'],
-        semi: ['error', 'always'],
+        semi: ['error', 'never'],
         'no-console': 0,
         'no-useless-escape': 0,
         'comma-spacing': 'warn',
@@ -53,4 +53,4 @@ module.exports = {
         'vue/require-prop-type-constructor': 0,
         'vue/require-default-prop': 0
     }
-};
+}

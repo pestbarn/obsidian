@@ -159,15 +159,15 @@
 </template>
 
 <script>
-import firebase from 'firebase/app';
-import 'firebase/database';
-import * as config from '/firebase.config';
-import fullImage from '../assets/labels/*.full.jpg';
-import BeerStats from './BeerStats.vue';
-import '../beer.scss';
+import firebase from 'firebase/app'
+import 'firebase/database'
+import * as config from '/firebase.config'
+import fullImage from '../assets/labels/*.full.jpg'
+import BeerStats from './BeerStats.vue'
+import '../beer.scss'
 
 if (!firebase.apps.length) {
-    firebase.initializeApp(config);
+    firebase.initializeApp(config)
 }
 
 export default {
@@ -181,59 +181,59 @@ export default {
             fullImage: fullImage,
             slugs: [],
             beerName: []
-        };
+        }
     },
     metaInfo() {
         return {
             title: this.beerName
-        };
+        }
     },
     mounted() {
-        this.loadBeer(this.$route.params.slug);
-        window.scrollTo(0, 0);
+        this.loadBeer(this.$route.params.slug)
+        window.scrollTo(0, 0)
     },
     methods: {
         loadBeer(slug) {
             if (sessionStorage.beerList) {
-                const beerList = JSON.parse(sessionStorage.getItem('beerList'));
+                const beerList = JSON.parse(sessionStorage.getItem('beerList'))
 
                 beerList.filter(beer => {
-                    this.slugs.push(beer.slug);
+                    this.slugs.push(beer.slug)
                     if (beer.slug === slug) {
-                        this.beers.push(beer);
-                        this.beerName.push(beer.name);
+                        this.beers.push(beer)
+                        this.beerName.push(beer.name)
                     }
-                });
+                })
 
-                if (!this.beers.length) this.$router.push('/');
-                if (document.getElementById('loading')) document.getElementById('loading').remove();
-                return;
+                if (!this.beers.length) this.$router.push('/')
+                if (document.getElementById('loading')) document.getElementById('loading').remove()
+                return
             }
 
-            const db = firebase.database();
+            const db = firebase.database()
 
             db.ref('/').once('value').then(snap => {
-                let promises = [];
-                let allBeers = [];
+                let promises = []
+                let allBeers = []
 
                 snap.forEach(beer => {
-                    allBeers.push(beer.val());
-                    this.slugs.push(beer.val().slug);
-                    if (beer.val().slug !== slug) return;
+                    allBeers.push(beer.val())
+                    this.slugs.push(beer.val().slug)
+                    if (beer.val().slug !== slug) return
                     promises.push(
                         this.beers.push(beer.val()),
                         this.beerName.push(beer.val().name)
-                    );
-                });
+                    )
+                })
 
-                sessionStorage.setItem('beerList', JSON.stringify(allBeers));
+                sessionStorage.setItem('beerList', JSON.stringify(allBeers))
 
                 Promise.all(promises).then(() => {
-                    if (!this.beers.length) this.$router.push('/');
-                    if (document.getElementById('loading')) document.getElementById('loading').remove();
-                });
-            });
+                    if (!this.beers.length) this.$router.push('/')
+                    if (document.getElementById('loading')) document.getElementById('loading').remove()
+                })
+            })
         }
     }
-};
+}
 </script>

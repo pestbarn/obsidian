@@ -36,9 +36,9 @@
 </template>
 
 <script>
-import ObsidianLogo from './components/ObsidianLogo.vue';
-import anime from 'animejs';
-import './prefixfree.min.js';
+import ObsidianLogo from './components/ObsidianLogo.vue'
+import anime from 'animejs'
+import './prefixfree.min.js'
 
 export default {
     name: 'App',
@@ -47,7 +47,7 @@ export default {
     },
     metaInfo: {
         titleTemplate: (titleChunk) => {
-            return titleChunk ? `${titleChunk} - Obsidian Craft Brewery` : 'Obsidian Craft Brewery';
+            return titleChunk ? `${titleChunk} - Obsidian Craft Brewery` : 'Obsidian Craft Brewery'
         }
     },
     mounted() {
@@ -57,23 +57,23 @@ export default {
             strokeDashoffset: [ anime.setDashoffset, 0 ],
             duration: (el, i) => i * 750,
             delay: 500
-        });
+        })
     },
     methods: {
         swipeHandler(dir) {
             // Navigate directly from beer to beer with swipes
 
-            if (!this.$route.name) return;
+            if (!this.$route.name) return
 
-            let goTo;
+            let goTo
 
-            if (dir === 'left') goTo = this.$refs.routerView.$refs.nextLink;
-            if (dir === 'right') goTo = this.$refs.routerView.$refs.prevLink;
+            if (dir === 'left') goTo = this.$refs.routerView.$refs.nextLink
+            if (dir === 'right') goTo = this.$refs.routerView.$refs.prevLink
 
-            if (!goTo) return;
+            if (!goTo) return
 
-            this.$router.push(goTo[0].to);
+            this.$router.push(goTo[0].to)
         }
     }
-};
+}
 </script>

@@ -42,15 +42,15 @@
 </template>
 
 <script>
-import BeerStats from './BeerStats.vue';
-import firebase from 'firebase/app';
-import 'firebase/database';
-import * as config from '/firebase.config';
-import images from '../assets/labels/*.square.jpg';
-import fullImage from '../assets/labels/*.full.jpg';
+import BeerStats from './BeerStats.vue'
+import firebase from 'firebase/app'
+import 'firebase/database'
+import * as config from '/firebase.config'
+import images from '../assets/labels/*.square.jpg'
+import fullImage from '../assets/labels/*.full.jpg'
 
 if (!firebase.apps.length) {
-    firebase.initializeApp(config);
+    firebase.initializeApp(config)
 }
 
 export default {
@@ -63,38 +63,38 @@ export default {
             beers: [],
             images: images,
             fullImage: fullImage
-        };
+        }
     },
     mounted() {
-        this.loadBeers();
-        window.scrollTo(0, 0);
+        this.loadBeers()
+        window.scrollTo(0, 0)
     },
     methods: {
         loadBeers() {
             if (sessionStorage.beerList) {
-                this.beers = JSON.parse(sessionStorage.getItem('beerList'));
-                if (document.getElementById('loading')) document.getElementById('loading').remove();
-                return;
+                this.beers = JSON.parse(sessionStorage.getItem('beerList'))
+                if (document.getElementById('loading')) document.getElementById('loading').remove()
+                return
             }
 
-            const db = firebase.database();
+            const db = firebase.database()
 
             db.ref('/').once('value').then(snap => {
-                let promises = [];
+                let promises = []
 
                 snap.forEach(beer => {
                     promises.push(
                         this.beers.push(beer.val())
-                    );
-                });
+                    )
+                })
 
-                sessionStorage.setItem('beerList', JSON.stringify(this.beers));
+                sessionStorage.setItem('beerList', JSON.stringify(this.beers))
 
                 Promise.all(promises).then(() => {
-                    if (document.getElementById('loading')) document.getElementById('loading').remove();
-                });
-            });
+                    if (document.getElementById('loading')) document.getElementById('loading').remove()
+                })
+            })
         }
     }
-};
+}
 </script>
