@@ -7,9 +7,11 @@
     "scripts": {
         "dev": "parcel ./index.html",
         "deploy": "npm run build && firebase deploy",
+        "deploy:nolint": "parcel build ./index.html && firebase deploy",
+        "eslint": "eslint {src/*.js,src/**/*.vue,src/*.vue} --fix",
         "build": "npm run lint && parcel build ./index.html",
-        "lint": "eslint {src/*.js,src/**/*.vue,src/*.vue} --fix",
-        "deploy:nolint": "parcel build ./index.html && firebase deploy"
+        "lint": "npm run eslint && npm run stylelint",
+        "stylelint": "stylelint src/**/*.scss --fix"
     },
     "devDependencies": {
         "@babel/core": "^7.12.16",
@@ -28,6 +30,7 @@
         "parcel-bundler": "^1.12.4",
         "parcel-plugin-clean-dist": "0.0.6",
         "sass": "^1.32.7",
+        "stylelint": "^13.11.0",
         "vue": "^2.6.12",
         "vue-router": "^3.5.1",
         "vue-template-compiler": "^2.6.12",

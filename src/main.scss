@@ -1,4 +1,4 @@
-@import "./normalize.css";
+@import './normalize.css';
 
 :root {
     -webkit-font-smoothing: antialiased;
@@ -7,8 +7,17 @@
     color: #1b140d;
 }
 
-::-moz-selection { background: #1b140d; color: #fff; text-shadow: none; }
-::selection { background: #1b140d; color: #fff; text-shadow: none; }
+::-moz-selection {
+    background: #1b140d;
+    color: #fff;
+    text-shadow: none;
+}
+
+::selection {
+    background: #1b140d;
+    color: #fff;
+    text-shadow: none;
+}
 
 body {
     background: #302015 url('./assets/background.png') repeat;
@@ -16,7 +25,7 @@ body {
 }
 
 #app {
-    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-family: Lato, Helvetica, Arial, sans-serif;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 30% 70%;
@@ -38,12 +47,12 @@ header {
     z-index: 2;
     text-align: center;
 
-    a[class^="router-link"] {
+    a[class^='router-link'] {
         color: #a26737;
         font-weight: 400;
     }
 
-    a[class^="router-link"]:hover {
+    a[class^='router-link']:hover {
         color: #a26737;
         text-decoration: none;
     }
