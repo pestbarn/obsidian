@@ -72,6 +72,8 @@ export default {
 
             if (!goTo) return
 
+            this.$findRefByName('loading').hidden = false
+
             this.$router.push(goTo[0].to)
         }
     }
