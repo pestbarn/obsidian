@@ -38,6 +38,7 @@
     },
     "dependencies": {
         "parcel": "^1.12.4",
+        "src": "^1.1.2",
         "vue-hot-reload-api": "^2.3.4",
         "vue-meta": "^2.4.0"
     },

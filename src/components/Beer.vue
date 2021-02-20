@@ -194,6 +194,10 @@ export default {
     },
     methods: {
         loadBeer(slug) {
+            let loading = this.$findRefByName('loading')
+
+            if (loading.hidden) loading.hidden = false
+
             if (sessionStorage.beerList) {
                 const beerList = JSON.parse(sessionStorage.getItem('beerList'))
 
@@ -206,7 +210,7 @@ export default {
                 })
 
                 if (!this.beers.length) this.$router.push('/')
-                if (document.getElementById('loading')) document.getElementById('loading').remove()
+                if (!loading.hidden) loading.hidden = true
                 return
             }
 
@@ -230,7 +234,7 @@ export default {
 
                 Promise.all(promises).then(() => {
                     if (!this.beers.length) this.$router.push('/')
-                    if (document.getElementById('loading')) document.getElementById('loading').remove()
+                    if (!loading.hidden) loading.hidden = true
                 })
             })
         }

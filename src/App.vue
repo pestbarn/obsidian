@@ -27,7 +27,7 @@
             </footer>
         </header>
 
-        <img src="assets/loading.svg" id="loading">
+        <img src="assets/loading.svg" id="loading" ref="loading">
 
         <div class="main">
             <router-view :key="$route.params.slug" ref="routerView"></router-view>

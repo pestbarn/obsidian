@@ -71,9 +71,11 @@ export default {
     },
     methods: {
         loadBeers() {
+            let loading = this.$findRefByName('loading')
+
             if (sessionStorage.beerList) {
                 this.beers = JSON.parse(sessionStorage.getItem('beerList'))
-                if (document.getElementById('loading')) document.getElementById('loading').remove()
+                if (!loading.hidden) loading.hidden = true
                 return
             }
 
@@ -91,7 +93,7 @@ export default {
                 sessionStorage.setItem('beerList', JSON.stringify(this.beers))
 
                 Promise.all(promises).then(() => {
-                    if (document.getElementById('loading')) document.getElementById('loading').remove()
+                    if (!loading.hidden) loading.hidden = true
                 })
             })
         }

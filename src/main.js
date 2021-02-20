@@ -3,6 +3,7 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import Meta from 'vue-meta'
 import Vue2TouchEvents from 'vue2-touch-events'
+import Helpers from './helpers.js'
 
 Vue.use(VueRouter)
 Vue.use(Vue2TouchEvents, {
@@ -11,6 +12,7 @@ Vue.use(Vue2TouchEvents, {
 Vue.use(Meta, {
     refreshOnceOnNavigation: true
 })
+Vue.use(Helpers)
 
 import Home from './components/Home.vue'
 import Beer from './components/Beer.vue'
