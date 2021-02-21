@@ -149,9 +149,26 @@ footer {
 }
 
 @media screen and (max-width: 64rem) {
+    html, body {
+        overflow-x: hidden;
+    }
+
     #app {
         grid-template-columns: 35% 65%;
         -ms-grid-columns: 35% 65%;
+    }
+
+    .main {
+        transform: translateX(0);
+
+        &.to-left,
+        &.from-left {
+            transform: translateX(-100%);
+        }
+        &.to-right,
+        &.from-right {
+            transform: translateX(100%);
+        }
     }
 }
 

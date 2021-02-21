@@ -29,7 +29,7 @@
 
         <img src="assets/loading.svg" id="loading" ref="loading">
 
-        <div class="main">
+        <div class="main" ref="main">
             <router-view :key="$route.params.slug" ref="routerView"></router-view>
         </div>
     </div>
@@ -65,16 +65,52 @@ export default {
 
             if (!this.$route.name) return
 
-            let goTo
+            if (dir === 'left') {
+                let goTo = this.$refs.routerView.$refs.nextLink
+                if (!goTo) return
 
-            if (dir === 'left') goTo = this.$refs.routerView.$refs.nextLink
-            if (dir === 'right') goTo = this.$refs.routerView.$refs.prevLink
+                this.swipeTo('left', 150, goTo)
+            }
 
-            if (!goTo) return
+            if (dir === 'right') {
+                let goTo = this.$refs.routerView.$refs.prevLink
+                if (!goTo) return
 
-            this.$findRefByName('loading').hidden = false
+                this.swipeTo('right', 150, goTo)
+            }
+        },
+        swipeTo(dir, dur, goTo) {
+            const main = this.$refs.main
 
-            this.$router.push(goTo[0].to)
+            // Reset main to default classlist
+            main.classList = 'main'
+
+            const transition = `${dur}ms transform`
+            main.style.transition = transition
+
+            main.classList.add(`to-${dir}`)
+
+            const opposite = dir === 'left' ? 'right' : 'left'
+
+            setTimeout(() => {
+                // After swipe has finished (dur), disable transition to make
+                // the element "jump" to the opposite side
+                main.style.transition = ''
+
+                setTimeout(() => {
+                    // Element has transitioned to one side; push new route
+                    // and start opposite transition
+                    main.classList = `main from-${opposite}`
+                    this.$router.push(goTo[0].to)
+
+                    setTimeout(() => {
+                        // Element has jumped to opposite side, reapply
+                        // transition and reset to default class
+                        main.style.transition = transition
+                        main.classList = 'main'
+                    }, (dur / 10))
+                }, (dur / 10))
+            }, dur)
         }
     }
 }

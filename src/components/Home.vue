@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <div ref="beer-container">
         <article class="beer" v-for="beer in beers.slice().reverse()" :key="beer.id">
             <div class="beer-content">
                 <ul class="beer-info">
                     <li>
                         <h2>
-                            <router-link :to="{ name: 'beer', params: { slug: beer.slug }}">
+                            <router-link :to="{ name: 'beer', params: { slug: beer.slug }}" @click.native="toTop">
                                 {{ beer.name }}
                             </router-link>
                         </h2>
@@ -20,14 +20,14 @@
                         <p>{{ beer.description }}</p>
                     </li>
                     <li>
-                        <router-link :to="{ name: 'beer', params: { slug: beer.slug }}">
+                        <router-link :to="{ name: 'beer', params: { slug: beer.slug }}" @click.native="toTop">
                             View recipe
                         </router-link>
                     </li>
                 </ul>
             </div>
             <figure class="beer-label" :data-label="beer.id">
-                <router-link :to="{ name: 'beer', params: { slug: beer.slug }}">
+                <router-link :to="{ name: 'beer', params: { slug: beer.slug }}" @click.native="toTop">
                     <img :src="images[beer.id]">
                 </router-link>
             </figure>
@@ -67,9 +67,12 @@ export default {
     },
     mounted() {
         this.loadBeers()
-        window.scrollTo(0, 0)
+        this.toTop()
     },
     methods: {
+        toTop() {
+            window.scrollTo(0, 0)
+        },
         loadBeers() {
             let loading = this.$findRefByName('loading')
 

@@ -190,7 +190,6 @@ export default {
     },
     mounted() {
         this.loadBeer(this.$route.params.slug)
-        window.scrollTo(0, 0)
     },
     methods: {
         loadBeer(slug) {
