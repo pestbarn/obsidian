@@ -25,7 +25,12 @@
                     </li>
                     <li v-if="beer.url" class="view-on-untappd">
                         <a :href="`https://untappd.com/b/${ beer.url }`">
-                            View on Untappd
+                            <span v-if="beerRating">
+                                {{ beerRating }}/5 on Untappd
+                            </span>
+                            <span v-else>
+                                View on Untappd
+                            </span>
                         </a>
                     </li>
                 </ul>
@@ -165,6 +170,7 @@ import * as config from '/firebase.config'
 import fullImage from '../assets/labels/*.full.jpg'
 import BeerStats from './BeerStats.vue'
 import '../beer.scss'
+const UntappdClient = require('node-untappd')
 
 if (!firebase.apps.length) {
     firebase.initializeApp(config)
@@ -180,7 +186,9 @@ export default {
             beers: [],
             fullImage: fullImage,
             slugs: [],
-            beerName: []
+            beerID: [],
+            beerName: [],
+            beerRating: null
         }
     },
     metaInfo() {
@@ -203,6 +211,7 @@ export default {
                 beerList.filter(beer => {
                     this.slugs.push(beer.slug)
                     if (beer.slug === slug) {
+                        this.beerID.push(beer.url.split('/')[1])
                         this.beers.push(beer)
                         this.beerName.push(beer.name)
                     }
@@ -210,6 +219,8 @@ export default {
 
                 if (!this.beers.length) this.$router.push('/')
                 if (!loading.hidden) loading.hidden = true
+
+                this.loadRatings()
                 return
             }
 
@@ -224,11 +235,13 @@ export default {
                     this.slugs.push(beer.val().slug)
                     if (beer.val().slug !== slug) return
                     promises.push(
+                        this.beerID.push(beer.val().url.split('/')[1]),
                         this.beers.push(beer.val()),
                         this.beerName.push(beer.val().name)
                     )
                 })
 
+                this.loadRatings()
                 sessionStorage.setItem('beerList', JSON.stringify(allBeers))
 
                 Promise.all(promises).then(() => {
@@ -236,6 +249,40 @@ export default {
                     if (!loading.hidden) loading.hidden = true
                 })
             })
+        },
+
+        loadRatings() {
+            const env = require('/.env.js')
+            const untappd = new UntappdClient()
+
+            untappd.setClientId(env.UNTAPPD_CLIENTID)
+            untappd.setClientSecret(env.UNTAPPD_CLIENTSECRET)
+
+            const bID = this.beerID
+            if (sessionStorage[bID]) {
+                this.setRating(JSON.parse(sessionStorage[bID]))
+                return
+            }
+
+            untappd.beerInfo((err, obj) => {
+                const response = obj.response.beer
+                const storage = {
+                    beerID: response.bid,
+                    ratingCount: response.rating_count,
+                    ratingScore: response.rating_score
+                }
+
+                sessionStorage.setItem(bID, JSON.stringify(storage))
+
+                this.setRating(JSON.parse(sessionStorage[bID]))
+            }, { BID: bID })
+        },
+
+        setRating(obj) {
+            const ratingScore = obj.ratingScore
+            if (!ratingScore) return
+
+            this.beerRating = ratingScore
         }
     }
 }

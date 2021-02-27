@@ -7,8 +7,6 @@ yarn-error.log
 .env
 serviceAccountKey.json
 .parcel-cache
-
-# Editor directories and files
 .idea
 *.suo
 *.ntvs*
@@ -16,3 +14,4 @@ serviceAccountKey.json
 *.sln
 firebase.config.js
 .firebase
+.env.js
