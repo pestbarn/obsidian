@@ -17,7 +17,7 @@
                         </span>
                     </li>
                     <li v-if="beer.description">
-                        <p>{{ beer.description }}</p>
+                        <p class="beer-description">{{ beer.description }}</p>
                     </li>
                     <li>
                         <router-link :to="{ name: 'beer', params: { slug: beer.slug }}" @click.native="toTop">
