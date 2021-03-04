@@ -21,7 +21,7 @@
                         </span>
                     </li>
                     <li v-if="beer.description">
-                        <p>{{ beer.description }}</p>
+                        <p class="beer-description">{{ beer.description }}</p>
                     </li>
                     <li v-if="beer.url" class="view-on-untappd">
                         <a :href="`https://untappd.com/b/${ beer.url }`">
@@ -211,7 +211,7 @@ export default {
                 beerList.filter(beer => {
                     this.slugs.push(beer.slug)
                     if (beer.slug === slug) {
-                        this.beerID.push(beer.url.split('/')[1])
+                        beer.url && this.beerID.push(beer.url.split('/')[1])
                         this.beers.push(beer)
                         this.beerName.push(beer.name)
                     }
@@ -235,7 +235,7 @@ export default {
                     this.slugs.push(beer.val().slug)
                     if (beer.val().slug !== slug) return
                     promises.push(
-                        this.beerID.push(beer.val().url.split('/')[1]),
+                        beer.val().url && this.beerID.push(beer.val().url.split('/')[1]),
                         this.beers.push(beer.val()),
                         this.beerName.push(beer.val().name)
                     )
@@ -263,6 +263,8 @@ export default {
                 this.setRating(JSON.parse(sessionStorage[bID]))
                 return
             }
+
+            if (!bID.length) return
 
             untappd.beerInfo((err, obj) => {
                 const response = obj.response.beer
