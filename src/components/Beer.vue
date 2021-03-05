@@ -17,7 +17,7 @@
                             Batch no: {{ beer.currentbatch }}
                         </span>
                         <span v-if="beer.brewday">
-                            Brewday: {{ beer.brewday[beer.currentbatch ? beer.currentbatch : 1].date }}
+                            Brewday: {{ formatDate(beer.brewday[beer.currentbatch ? beer.currentbatch : 1].date) }}
                         </span>
                     </li>
                     <li v-if="beer.description">
@@ -286,6 +286,18 @@ export default {
             if (!ratingScore) return
 
             this.beerRating = ratingScore
+        },
+
+        formatDate(date) {
+            const year = parseInt(String(date).slice(0, 4))
+            const month = parseInt(String(date).slice(4, 6))
+            const day = parseInt(String(date).slice(6, 8))
+
+            return new Date(`${year}-${month}-${day}`).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            })
         }
     }
 }
