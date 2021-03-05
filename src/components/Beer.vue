@@ -210,11 +210,12 @@ export default {
 
                 beerList.filter(beer => {
                     this.slugs.push(beer.slug)
-                    if (beer.slug === slug) {
-                        beer.url && this.beerID.push(beer.url.split('/')[1])
-                        this.beers.push(beer)
-                        this.beerName.push(beer.name)
-                    }
+
+                    if (beer.slug !== slug) return
+
+                    beer.url && this.beerID.push(beer.url.split('/')[1])
+                    this.beers.push(beer)
+                    this.beerName.push(beer.name)
                 })
 
                 if (!this.beers.length) this.$router.push('/')
@@ -224,16 +225,16 @@ export default {
                 return
             }
 
-            const db = firebase.database()
-
-            db.ref('/').once('value').then(snap => {
+            firebase.database().ref('/').once('value').then(snap => {
                 let promises = []
                 let allBeers = []
 
                 snap.forEach(beer => {
                     allBeers.push(beer.val())
                     this.slugs.push(beer.val().slug)
+
                     if (beer.val().slug !== slug) return
+
                     promises.push(
                         beer.val().url && this.beerID.push(beer.val().url.split('/')[1]),
                         this.beers.push(beer.val()),
