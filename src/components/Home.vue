@@ -75,8 +75,9 @@ export default {
         },
         loadBeers() {
             let loading = this.$findRefByName('loading')
+            const debug = 0
 
-            if (sessionStorage.beerList) {
+            if (sessionStorage.beerList && !debug) {
                 this.beers = JSON.parse(sessionStorage.getItem('beerList'))
                 if (!loading.hidden) loading.hidden = true
                 return
@@ -85,19 +86,26 @@ export default {
             const db = firebase.database()
 
             db.ref('/').once('value').then(snap => {
-                let promises = []
+                let array = []
 
                 snap.forEach(beer => {
-                    promises.push(
-                        this.beers.push(beer.val())
-                    )
+                    array.push(beer.val())
                 })
+
+                function compare(a, b) {
+                    const dateA = a.brewday.slice(-1)[0].date
+                    const dateB = b.brewday.slice(-1)[0].date
+
+                    if (dateA < dateB) return -1
+                    if (dateA > dateB) return 1
+                    return 0
+                }
+
+                array.sort(compare)
+                array.forEach(val => this.beers.push(val))
 
                 sessionStorage.setItem('beerList', JSON.stringify(this.beers))
-
-                Promise.all(promises).then(() => {
-                    if (!loading.hidden) loading.hidden = true
-                })
+                if (!loading.hidden) loading.hidden = true
             })
         }
     }
