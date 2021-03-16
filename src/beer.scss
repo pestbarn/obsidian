@@ -1,12 +1,13 @@
 .beer {
     display: grid;
-    grid-template-columns: 55% 45%;
+    grid-template-columns: 60% 40%;
     grid-gap: 1rem;
     -ms-grid-columns: 60% 1rem 40%;
     margin: 1.5rem 2.5rem;
-    background: #a26737;
+    background: #a26737 url('./assets/boxtexture.png') repeat;
     border: 1px solid #1b140d;
     box-shadow: 0.75rem 0.75rem 0 0 #1b140d;
+    position: relative;
 }
 
 .beer-detailed-view {
