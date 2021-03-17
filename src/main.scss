@@ -148,6 +148,34 @@ footer {
     -ms-grid-column: 2;
 }
 
+.units-switcher {
+    background: #181818;
+    font-size: .8rem;
+    position: relative;
+    margin: .5rem;
+    padding: 0 1rem;
+    text-transform: uppercase;
+
+    &, a {
+        color: #a26737;
+        font-weight: 400;
+    }
+
+    a.active {
+        text-decoration: underline;
+    }
+
+    ul {
+        li:first-child {
+            padding-right: 1.5rem;
+        }
+
+        li:last-child {
+            padding-left: 1.5rem;
+        }
+    }
+}
+
 @media screen and (max-width: 64rem) {
     html, body {
         overflow-x: hidden;

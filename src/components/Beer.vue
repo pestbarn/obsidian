@@ -45,7 +45,7 @@
                             </thead>
                             <tbody>
                                 <tr v-for="(waters, i) in beer.recipe[beer.currentbatch ? beer.currentbatch : 1].waters.slice(1)" :key="i">
-                                    <td v-for="(water, j) in waters" :key="j">{{ water }}</td>
+                                    <td v-for="(water, j) in waters" :key="j" :data-original="water" :ref="`water${j[0].toUpperCase()}${j.slice(1)}`">{{ water }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -59,7 +59,7 @@
                             </thead>
                             <tbody>
                                 <tr v-for="(fermentables, i) in beer.recipe[beer.currentbatch ? beer.currentbatch : 1].fermentables.slice(1)" :key="i">
-                                    <td v-for="(fermentable, j) in fermentables" :key="j">{{ fermentable }}</td>
+                                    <td v-for="(fermentable, j) in fermentables" :key="j" :data-original="fermentable" :ref="`fermentables${j[0].toUpperCase()}${j.slice(1)}`">{{ fermentable }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -73,7 +73,7 @@
                             </thead>
                             <tbody>
                                 <tr v-for="(hops, i) in beer.recipe[beer.currentbatch ? beer.currentbatch : 1].hops.slice(1)" :key="i">
-                                    <td v-for="(hop, j) in hops" :key="j">{{ hop }}</td>
+                                    <td v-for="(hop, j) in hops" :key="j" :data-original="hop" :ref="`hops${j[0].toUpperCase()}${j.slice(1)}`">{{ hop }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -87,7 +87,7 @@
                             </thead>
                             <tbody>
                                 <tr v-for="(fermentation, i) in beer.recipe[beer.currentbatch ? beer.currentbatch : 1].fermentation.slice(1)" :key="i">
-                                    <td v-for="(object, j) in fermentation" :key="j">{{ object }}</td>
+                                    <td v-for="(object, j) in fermentation" :key="j" :data-original="object" :ref="`fermentation${j[0].toUpperCase()}${j.slice(1)}`">{{ object }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -101,7 +101,7 @@
                             </thead>
                             <tbody>
                                 <tr v-for="(additions, i) in beer.recipe[beer.currentbatch ? beer.currentbatch : 1].additions.slice(1)" :key="i">
-                                    <td v-for="(addition, j) in additions" :key="j">{{ addition }}</td>
+                                    <td v-for="(addition, j) in additions" :key="j" :data-original="addition" :ref="`addition${j[0].toUpperCase()}${j.slice(1)}`">{{ addition }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -196,7 +196,7 @@ export default {
             title: this.beerName
         }
     },
-    mounted() {
+    beforeMount() {
         this.loadBeer(this.$route.params.slug)
     },
     methods: {
@@ -222,6 +222,7 @@ export default {
                 if (!loading.hidden) loading.hidden = true
 
                 this.loadRatings()
+                if (localStorage.getItem('freedomUnits')) this.unitConversions()
                 return
             }
 
@@ -243,6 +244,7 @@ export default {
                 })
 
                 this.loadRatings()
+                if (localStorage.getItem('freedomUnits')) this.unitConversions()
                 sessionStorage.setItem('beerList', JSON.stringify(allBeers))
 
                 Promise.all(promises).then(() => {
@@ -298,6 +300,54 @@ export default {
                 month: 'long',
                 day: 'numeric'
             })
+        },
+
+        unitConversions() {
+            this.$nextTick(() => {
+                const refs = this.$refs
+
+                if (refs.waterValue)
+                    refs.waterValue.forEach(el => this.$waterConversion(el))
+
+                if (refs.fermentablesAmount)
+                    refs.fermentablesAmount.forEach(el => this.$weightConversion(el))
+
+                if (refs.hopsAmount)
+                    refs.hopsAmount.forEach(el => this.$weightConversion(el))
+
+                if (refs.fermentationValue)
+                    this.$carbonationWeightConversion(
+                        refs.fermentationValue[refs.fermentationValue.length - 1]
+                    )
+
+                if (refs.additionAmount)
+                    refs.additionAmount.forEach(el => this.$weightConversion(el))
+            })
+        },
+
+        resetConversions() {
+            this.$nextTick(() => {
+                const refs = this.$refs
+
+                if (refs.waterValue)
+                    refs.waterValue.forEach(el => this.resetContent(el))
+
+                if (refs.fermentablesAmount)
+                    refs.fermentablesAmount.forEach(el => this.resetContent(el))
+
+                if (refs.hopsAmount)
+                    refs.hopsAmount.forEach(el => this.resetContent(el))
+
+                if (refs.fermentationValue)
+                    refs.fermentationValue.forEach(el => this.resetContent(el))
+
+                if (refs.additionAmount)
+                    refs.additionAmount.forEach(el => this.resetContent(el))
+            })
+        },
+
+        resetContent(el) {
+            return el.innerText = el.dataset.original
         }
     }
 }

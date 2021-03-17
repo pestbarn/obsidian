@@ -25,12 +25,21 @@
                     </li>
                 </ul>
             </footer>
+
+            <footer class="units-switcher" v-if="this.$route.params.slug">
+                <ul>
+                    <li><a @click.prevent="switchUnits()" :class="isFreedom ? '' : 'active'">Metric</a></li>
+                    <li><a @click.prevent="switchUnits(1)" :class="isFreedom ? 'active' : ''">Freedom</a></li>
+                </ul>
+            </footer>
         </header>
 
         <img src="assets/loading.svg" id="loading" ref="loading">
 
         <div class="main" ref="main">
-            <router-view :key="$route.params.slug" ref="routerView"></router-view>
+            <keep-alive>
+                <router-view :key="this.$route.params.slug" ref="routerView"></router-view>
+            </keep-alive>
         </div>
     </div>
 </template>
@@ -45,6 +54,11 @@ export default {
     components: {
         ObsidianLogo
     },
+    data() {
+        return {
+            isFreedom: ''
+        }
+    },
     metaInfo: {
         titleTemplate: (titleChunk) => {
             return titleChunk ? `${titleChunk} - Obsidian Craft Brewery` : 'Obsidian Craft Brewery'
@@ -58,8 +72,22 @@ export default {
             duration: (el, i) => i * 750,
             delay: 500
         })
+
+        if (localStorage.freedomUnits) this.isFreedom = true
     },
     methods: {
+        switchUnits(value) {
+            if (value) {
+                if (localStorage.getItem('freedomUnits')) return
+                localStorage.setItem('freedomUnits', 1)
+                this.$refs.routerView.unitConversions()
+                this.isFreedom = true
+            } else {
+                localStorage.removeItem('freedomUnits')
+                this.$refs.routerView.resetConversions()
+                this.isFreedom = false
+            }
+        },
         swipeHandler(dir) {
             // Navigate directly from beer to beer with swipes
 
