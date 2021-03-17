@@ -78,7 +78,10 @@ export default {
             const debug = 0
 
             if (sessionStorage.beerList && !debug) {
-                this.beers = JSON.parse(sessionStorage.getItem('beerList'))
+                const array = [...JSON.parse(sessionStorage.getItem('beerList'))]
+
+                array.sort(this.compare)
+                this.beers = array
                 if (!loading.hidden) loading.hidden = true
                 return
             }
@@ -86,27 +89,26 @@ export default {
             const db = firebase.database()
 
             db.ref('/').once('value').then(snap => {
-                let array = []
+                const array = []
 
                 snap.forEach(beer => {
                     array.push(beer.val())
                 })
 
-                function compare(a, b) {
-                    const dateA = a.brewday.slice(-1)[0].date
-                    const dateB = b.brewday.slice(-1)[0].date
-
-                    if (dateA < dateB) return -1
-                    if (dateA > dateB) return 1
-                    return 0
-                }
-
-                array.sort(compare)
+                array.sort(this.compare)
                 array.forEach(val => this.beers.push(val))
 
                 sessionStorage.setItem('beerList', JSON.stringify(this.beers))
                 if (!loading.hidden) loading.hidden = true
             })
+        },
+        compare(a, b) {
+            const dateA = a.brewday.slice(-1)[0].date
+            const dateB = b.brewday.slice(-1)[0].date
+
+            if (dateA < dateB) return -1
+            if (dateA > dateB) return 1
+            return 0
         }
     }
 }
