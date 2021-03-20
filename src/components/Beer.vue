@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <transition name="slide-fade" appear>
         <article class="beer beer-detailed-view" v-for="beer in beers.slice().reverse()" :key="beer.id">
             <div class="beer-content">
                 <figure class="beer-label" :data-label="beer.id">
@@ -160,7 +160,7 @@
                 </ul>
             </div>
         </article>
-    </div>
+    </transition>
 </template>
 
 <script>

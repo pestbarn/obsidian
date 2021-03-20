@@ -1,5 +1,5 @@
 <template>
-    <div ref="beer-container">
+    <transition-group name="slide-fade" appear tag="div" ref="beer-container">
         <article class="beer" v-for="beer in beers.slice().reverse()" :key="beer.id">
             <div class="beer-content">
                 <ul class="beer-info">
@@ -38,7 +38,7 @@
                 <img :src="`${fullImage[beer.id]}`">
             </div>
         </article>
-    </div>
+    </transition-group>
 </template>
 
 <script>

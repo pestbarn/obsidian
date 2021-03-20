@@ -26,7 +26,7 @@
                 </ul>
             </footer>
 
-            <footer class="units-switcher" v-if="this.$route.params.slug">
+            <footer class="units-switcher" v-if="$route.params.slug">
                 <ul>
                     <li><a @click.prevent="switchUnits()" :class="isFreedom ? '' : 'active'">Metric</a></li>
                     <li><a @click.prevent="switchUnits(1)" :class="isFreedom ? 'active' : ''">Freedom</a></li>
@@ -38,7 +38,7 @@
 
         <div class="main" ref="main">
             <keep-alive>
-                <router-view :key="this.$route.params.slug" ref="routerView"></router-view>
+                <router-view :key="$route.params.slug" ref="routerView"></router-view>
             </keep-alive>
         </div>
     </div>

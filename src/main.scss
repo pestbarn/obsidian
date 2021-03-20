@@ -208,6 +208,23 @@ footer {
     .logotype {
         max-width: 15rem;
     }
+
+    .slide-fade-enter-active {
+        transition: all .3s ease-in;
+    }
+
+    .slide-fade-leave-active {
+        transition: all .3s ease-out;
+    }
+
+    .slide-fade-enter, .slide-fade-leave-to {
+        transform: translateX(10px);
+        opacity: 0;
+    }
+
+    .slide-fade-leave-to {
+        transform: translate(0);
+    }
 }
 
 @media screen and (max-width: 48rem) {
