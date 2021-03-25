@@ -1,0 +1,17 @@
+{
+  "prerender": {
+    "routes": [
+        "/",
+        "/beer/abbey-abattoir",
+        "/beer/belgian-butcher",
+        "/beer/zagan",
+        "/beer/aquilo",
+        "/beer/caym",
+        "/beer/foras",
+        "/beer/pazuzu",
+        "/beer/naberius",
+        "/beer/choronzon",
+        "/beer/asmodeus"
+    ]
+  }
+}
