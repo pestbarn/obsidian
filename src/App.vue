@@ -47,7 +47,7 @@
 <script>
 import ObsidianLogo from './components/ObsidianLogo.vue'
 import anime from 'animejs'
-import './prefixfree.min.js'
+import 'prefixfree'
 
 export default {
     name: 'App',

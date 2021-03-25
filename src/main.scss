@@ -1,4 +1,4 @@
-@import './normalize.css';
+@import 'normalize.css';
 
 :root {
     -webkit-font-smoothing: antialiased;
@@ -20,7 +20,7 @@
 }
 
 body {
-    background: #302015 url('./assets/background.png') repeat;
+    background: #302015 url('assets/background.png') repeat;
     margin: 0;
 }
 
@@ -119,7 +119,7 @@ img {
 
 footer {
     margin: 1.5rem 0 0;
-    background: #a26737 url('./assets/boxtexture.png') repeat;
+    background: #a26737 url('assets/boxtexture.png') repeat;
     align-self: start;
     text-align: center;
     padding: 1rem;
