@@ -1,10 +1,10 @@
 .beer {
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 55% 45%;
     grid-gap: 1rem;
     -ms-grid-columns: 60% 1rem 40%;
     margin: 1.5rem 2.5rem;
-    background: #a26737 url('assets/boxtexture.png') repeat;
+    background: #c7a996 url('assets/boxtexture.png') repeat;
     border: 1px solid #1b140d;
     box-shadow: 0.75rem 0.75rem 0 0 #1b140d;
     position: relative;
@@ -119,7 +119,7 @@
 
 @media screen and (min-width: 48rem) {
     .beer-label {
-        width: 10rem;
+        width: 85%;
         justify-self: right;
         align-self: start;
         transform-origin: top right;
@@ -164,6 +164,7 @@
         grid-gap: 2rem;
         margin: 1.5rem;
         padding: 0 1.5rem 1.5rem;
+        min-width: 19.25rem;
     }
 
     .beer-label {

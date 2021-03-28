@@ -1,19 +1,16 @@
+.beer:not(.beer-detailed-view) .beer-stats {
+    padding: 0;
+}
+
 .beer-stats {
     display: grid;
     grid-gap: .25rem;
-    grid-column: 1 / -1;
     justify-items: center;
-    margin: 0 2rem 1rem;
-    max-width: calc(8 * 5rem);
-    grid-template-columns: repeat(8, 1fr);
+    margin: 1rem -.25rem 1rem 1rem;
+    grid-template-columns: repeat(4, 1fr);
 
     li {
         padding: .5rem;
-        transition: .25s opacity;
-
-        &:hover {
-            opacity: 1;
-        }
 
         p {
             margin: 0;
@@ -29,7 +26,7 @@
             align-content: center;
             border: 1px solid #1b140d;
             box-shadow: .3rem .3rem 0 0 #1b140d;
-            text-shadow: 1px 1px 2px #a26737;
+            text-shadow: 1px 1px 2px #96725b;
         }
 
         span {
@@ -43,16 +40,12 @@
             font-size: .75rem;
             text-decoration: none;
             color: rgba(255, 255, 255, 1);
-            border-bottom: 1px dotted #a26737;
+            border-bottom: 1px dotted #96725b;
         }
     }
 }
 
 @media screen and (min-width: 48rem) {
-    .beer-stats li {
-        opacity: .5;
-    }
-
     .beer-detailed-view .beer-stats {
         margin-top: 0.75rem;
         grid-row: 2 / 5;
@@ -61,18 +54,13 @@
         margin: .75rem 1rem 0 0;
         grid-gap: 1rem 0;
         align-content: start;
-
-        li {
-            opacity: 1;
-        }
     }
 }
 
 @media screen and (max-width: 48rem) {
     .beer-stats {
-        margin: 0;
+        margin: 1rem 0 0;
         padding: 0;
-        grid-template-columns: repeat(4, 1fr);
 
         li {
             display: inline-block;
@@ -90,6 +78,5 @@
 @media screen and (max-width: 64rem) {
     .beer-stats {
         margin-left: 0;
-        grid-template-columns: repeat(4, 1fr);
     }
 }

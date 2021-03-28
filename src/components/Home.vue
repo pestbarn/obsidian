@@ -25,14 +25,19 @@
                         </router-link>
                     </li>
                 </ul>
+
+                <BeerStats class="hidden-mobile" :beer="beer"></BeerStats>
             </div>
-            <figure class="beer-label" :data-label="beer.id">
+
+            <figure class="hidden-mobile" :style="`background: url(${images[beer.id]}) center center; background-size: cover; margin: 0 1rem 0 0; box-shadow: inset 1px 0 .5rem rgb(27 20 13 / 75%);`"></figure>
+
+            <figure class="beer-label hidden-desktop" :data-label="beer.id">
                 <router-link :to="{ name: 'beer', params: { slug: beer.slug }}" @click.native="toTop">
                     <img :src="images[beer.id]">
                 </router-link>
             </figure>
 
-            <BeerStats :beer="beer"></BeerStats>
+            <BeerStats class="hidden-desktop" :beer="beer"></BeerStats>
 
             <div class="preload-image">
                 <img :src="`${fullImage[beer.id]}`">
