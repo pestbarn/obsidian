@@ -2,7 +2,7 @@
     <div id="app" v-touch:swipe="swipeHandler">
         <header>
             <ObsidianLogo></ObsidianLogo>
-            <router-link to="/">
+            <router-link to="/" style="display: block;">
                 <img src="assets/logotype.svg" class="logotype">
             </router-link>
             <h1>

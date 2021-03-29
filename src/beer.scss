@@ -36,6 +36,30 @@
     }
 }
 
+.beer-label-desktop {
+    position: relative;
+    margin: 0 1rem 0 0;
+    background-size: cover;
+    background-position: center center;
+    box-shadow: inset 1px 0 .5rem rgb(27 20 13 / 75%);
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: .65;
+        background: #c7a996;
+        transition: .75s opacity;
+    }
+
+    &:hover::before {
+        opacity: .35;
+    }
+}
+
 .beer-detailed-view .beer-label {
     max-height: initial;
 }

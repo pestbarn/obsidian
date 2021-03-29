@@ -29,7 +29,9 @@
                 <BeerStats class="hidden-mobile" :beer="beer"></BeerStats>
             </div>
 
-            <figure class="hidden-mobile" :style="`background: url(${images[beer.id]}) center center; background-size: cover; margin: 0 1rem 0 0; box-shadow: inset 1px 0 .5rem rgb(27 20 13 / 75%);`"></figure>
+            <router-link :to="{ name: 'beer', params: { slug: beer.slug }}" @click.native="toTop" class="beer-label-desktop hidden-mobile" :style="`background-image: url(${images[beer.id]});`">
+                <figure></figure>
+            </router-link>
 
             <figure class="beer-label hidden-desktop" :data-label="beer.id">
                 <router-link :to="{ name: 'beer', params: { slug: beer.slug }}" @click.native="toTop">
