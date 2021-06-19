@@ -2,9 +2,14 @@
     <transition name="slide-fade" appear>
         <article class="beer beer-detailed-view" v-for="beer in beers.slice().reverse()" :key="beer.id">
             <div class="beer-content">
-                <figure class="beer-label" :data-label="beer.id">
-                    <img :src="fullImage[beer.id]">
-                </figure>
+                <div class="beer-visuals">
+                    <figure class="beer-photo" :data-label="beer.id" v-if="beer.photo">
+                        <img :src="photo[beer.id]">
+                    </figure>
+                    <figure class="beer-label" :data-label="beer.id">
+                        <img :src="fullImage[beer.id]">
+                    </figure>
+                </div>
                 <ul class="beer-info">
                     <li>
                         <h2>
@@ -168,6 +173,7 @@ import firebase from 'firebase/app'
 import 'firebase/database'
 import * as config from '/firebase.config'
 import fullImage from '../assets/labels/*.full.jpg'
+import photo from '../assets/photos/*.jpg'
 import BeerStats from './BeerStats.vue'
 import '../beer.scss'
 const UntappdClient = require('node-untappd')
@@ -185,6 +191,7 @@ export default {
         return {
             beers: [],
             fullImage: fullImage,
+            photo: photo,
             slugs: [],
             beerID: [],
             beerName: [],
