@@ -42,6 +42,7 @@
             <BeerStats class="hidden-desktop" :beer="beer"></BeerStats>
 
             <div class="preload-image">
+                <img :src="`${photo[beer.id]}`">
                 <img :src="`${fullImage[beer.id]}`">
             </div>
         </article>
@@ -55,6 +56,7 @@ import 'firebase/database'
 import * as config from '/firebase.config'
 import images from '../assets/labels/*.square.jpg'
 import fullImage from '../assets/labels/*.full.jpg'
+import photo from '../assets/photos/*.jpg'
 
 if (!firebase.apps.length) {
     firebase.initializeApp(config)
@@ -69,7 +71,8 @@ export default {
         return {
             beers: [],
             images: images,
-            fullImage: fullImage
+            fullImage: fullImage,
+            photo: photo
         }
     },
     mounted() {
