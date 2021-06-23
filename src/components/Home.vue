@@ -29,7 +29,7 @@
                 <BeerStats class="hidden-mobile" :beer="beer"></BeerStats>
             </div>
 
-            <router-link :to="{ name: 'beer', params: { slug: beer.slug }}" @click.native="toTop" class="beer-label-desktop hidden-mobile" :style="`background-image: url(${images[beer.id]});`">
+            <router-link :to="{ name: 'beer', params: { slug: beer.slug }}" @click.native="toTop" class="beer-label-desktop hidden-mobile" :style="`background-image: url(${photo[beer.id] ? photo[beer.id] : images[beer.id]});`">
                 <figure></figure>
             </router-link>
 
