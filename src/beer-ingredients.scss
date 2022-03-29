@@ -1,9 +1,12 @@
 .beer-ingredients {
     font-size: .9rem;
-    display: grid;
     margin: 1.5rem 0 1rem 2.25rem;
-    grid-gap: 1rem;
-    grid-template-columns: 1fr 1fr;
+
+    > div {
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: 1fr 1fr;
+    }
 
     table {
         width: 100%;
@@ -118,7 +121,10 @@
 @media screen and (max-width: 48rem) {
     .beer-ingredients {
         margin: 1.25rem 0;
-        grid-template-columns: 1fr;
+
+        > div {
+            grid-template-columns: 1fr;
+        }
     }
 
     .beer-ingredients .beer-water tbody tr {

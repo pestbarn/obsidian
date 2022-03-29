@@ -41,76 +41,7 @@
                 </ul>
 
                 <div class="beer-ingredients" v-if="beer.recipe">
-                    <div class="beer-water" v-if="beer.recipe[beer.currentbatch ? beer.currentbatch : 1].waters">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th colspan="10">Water</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="(waters, i) in beer.recipe[beer.currentbatch ? beer.currentbatch : 1].waters.slice(1)" :key="i">
-                                    <td v-for="(water, j) in waters" :key="j" :data-original="water" :ref="`water${j[0].toUpperCase()}${j.slice(1)}`">{{ water }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="beer-fermentables" v-if="beer.recipe[beer.currentbatch ? beer.currentbatch : 1].fermentables">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th colspan="10">Fermentables</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="(fermentables, i) in beer.recipe[beer.currentbatch ? beer.currentbatch : 1].fermentables.slice(1)" :key="i">
-                                    <td v-for="(fermentable, j) in fermentables" :key="j" :data-original="fermentable" :ref="`fermentables${j[0].toUpperCase()}${j.slice(1)}`">{{ fermentable }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="beer-hops" v-if="beer.recipe[beer.currentbatch ? beer.currentbatch : 1].hops">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th colspan="10">Hops</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="(hops, i) in beer.recipe[beer.currentbatch ? beer.currentbatch : 1].hops.slice(1)" :key="i">
-                                    <td v-for="(hop, j) in hops" :key="j" :data-original="hop" :ref="`hops${j[0].toUpperCase()}${j.slice(1)}`">{{ hop }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="beer-yeast" v-if="beer.recipe[beer.currentbatch ? beer.currentbatch : 1].fermentation">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Fermentation</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="(fermentation, i) in beer.recipe[beer.currentbatch ? beer.currentbatch : 1].fermentation.slice(1)" :key="i">
-                                    <td v-for="(object, j) in fermentation" :key="j" :data-original="object" :ref="`fermentation${j[0].toUpperCase()}${j.slice(1)}`">{{ object }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="beer-additions" v-if="beer.recipe[beer.currentbatch ? beer.currentbatch : 1].additions">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Additions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="(additions, i) in beer.recipe[beer.currentbatch ? beer.currentbatch : 1].additions.slice(1)" :key="i">
-                                    <td v-for="(addition, j) in additions" :key="j" :data-original="addition" :ref="`addition${j[0].toUpperCase()}${j.slice(1)}`">{{ addition }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <BeerIngredients :beer="beer" />
                 </div>
 
                 <ul class="beer-recipe" :id="beer.id" v-else-if="beer.ingredients">
@@ -174,6 +105,7 @@ import 'firebase/database'
 import * as config from '/firebase.config'
 import fullImage from '../assets/labels/*.full.jpg'
 import photo from '../assets/photos/*.jpg'
+import BeerIngredients from './BeerIngredients.vue'
 import BeerStats from './BeerStats.vue'
 import '../beer.scss'
 const UntappdClient = require('node-untappd')
@@ -185,6 +117,7 @@ if (!firebase.apps.length) {
 export default {
     name: 'Beer',
     components: {
+        BeerIngredients,
         BeerStats
     },
     data() {
