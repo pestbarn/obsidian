@@ -26,7 +26,7 @@
                 </ul>
             </footer>
 
-            <footer class="units-switcher" v-if="$route.params.slug">
+            <footer class="units-switcher" v-if="$route.params.slug && 0">
                 <ul>
                     <li><a @click.prevent="switchUnits()" :class="isFreedom ? '' : 'active'">Metric</a></li>
                     <li><a @click.prevent="switchUnits(1)" :class="isFreedom ? 'active' : ''">Freedom</a></li>

@@ -142,10 +142,11 @@ export default {
     methods: {
         loadBeer(slug) {
             let loading = this.$findRefByName('loading')
+            const debug = 0
 
             if (loading.hidden) loading.hidden = false
 
-            if (sessionStorage.beerList) {
+            if (sessionStorage.beerList && !debug) {
                 const beerList = JSON.parse(sessionStorage.getItem('beerList'))
 
                 beerList.filter(beer => {
@@ -162,7 +163,6 @@ export default {
                 if (!loading.hidden) loading.hidden = true
 
                 this.loadRatings()
-                if (localStorage.getItem('freedomUnits')) this.unitConversions()
                 return
             }
 
@@ -184,7 +184,6 @@ export default {
                 })
 
                 this.loadRatings()
-                if (localStorage.getItem('freedomUnits')) this.unitConversions()
                 sessionStorage.setItem('beerList', JSON.stringify(allBeers))
 
                 Promise.all(promises).then(() => {
@@ -240,54 +239,6 @@ export default {
                 month: 'long',
                 day: 'numeric'
             })
-        },
-
-        unitConversions() {
-            this.$nextTick(() => {
-                const refs = this.$refs
-
-                if (refs.waterValue)
-                    refs.waterValue.forEach(el => this.$waterConversion(el))
-
-                if (refs.fermentablesAmount)
-                    refs.fermentablesAmount.forEach(el => this.$weightConversion(el))
-
-                if (refs.hopsAmount)
-                    refs.hopsAmount.forEach(el => this.$weightConversion(el))
-
-                if (refs.fermentationValue)
-                    this.$carbonationWeightConversion(
-                        refs.fermentationValue[refs.fermentationValue.length - 1]
-                    )
-
-                if (refs.additionAmount)
-                    refs.additionAmount.forEach(el => this.$weightConversion(el))
-            })
-        },
-
-        resetConversions() {
-            this.$nextTick(() => {
-                const refs = this.$refs
-
-                if (refs.waterValue)
-                    refs.waterValue.forEach(el => this.resetContent(el))
-
-                if (refs.fermentablesAmount)
-                    refs.fermentablesAmount.forEach(el => this.resetContent(el))
-
-                if (refs.hopsAmount)
-                    refs.hopsAmount.forEach(el => this.resetContent(el))
-
-                if (refs.fermentationValue)
-                    refs.fermentationValue.forEach(el => this.resetContent(el))
-
-                if (refs.additionAmount)
-                    refs.additionAmount.forEach(el => this.resetContent(el))
-            })
-        },
-
-        resetContent(el) {
-            return el.innerText = el.dataset.original
         }
     }
 }

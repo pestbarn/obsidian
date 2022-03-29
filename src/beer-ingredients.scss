@@ -109,6 +109,24 @@
         }
     }
 
+    .beer-chemistry table {
+        background: rgba(180,70,2,.15);
+
+        &:hover {
+            background: rgba(180,70,2,.25);
+        }
+
+        tbody tr {
+            grid-template-columns: repeat(6, 1fr);
+            align-items: center;
+            justify-items: center;
+        }
+
+        strong {
+            display: block;
+        }
+    }
+
     .beer-hops,
     .beer-additions {
         tbody tr td:last-child {
