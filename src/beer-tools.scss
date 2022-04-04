@@ -1,0 +1,27 @@
+.beer-tools {
+    padding: 0 1rem;
+    grid-template-columns: 1fr;
+
+    h2 {
+        margin-bottom: 0;
+    }
+
+    .beer-tool {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+table {
+    tr td:first-child {
+        text-align: right;
+    }
+
+    input {
+        width: 17rem;
+    }
+
+    select {
+        width: 17.5rem;
+    }
+}

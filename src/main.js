@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import Meta from 'vue-meta'
 import Vue2TouchEvents from 'vue2-touch-events'
 import Helpers from './helpers.js'
+import VueKatex from 'vue-katex'
 
 Vue.use(VueRouter)
 Vue.use(Vue2TouchEvents, {
@@ -16,7 +17,9 @@ Vue.use(Helpers)
 
 import Home from './components/Home.vue'
 import Beer from './components/Beer.vue'
+import Tools from './components/Tools.vue'
 import './main.scss'
+import 'katex/dist/katex.min.css'
 
 const routes = [
     {
@@ -31,12 +34,24 @@ const routes = [
         path: '/beer/:slug',
         name: 'beer',
         component: Beer
+    },
+    {
+        path: '/tools',
+        name: 'tools',
+        component: Tools
     }
 ]
 
 const router = new VueRouter({
     mode: 'history',
     routes
+})
+
+Vue.use(VueKatex, {
+    globalOptions: {
+        strict: false,
+        trust: true
+    }
 })
 
 new Vue({
