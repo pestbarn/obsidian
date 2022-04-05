@@ -52,7 +52,7 @@
                         </div>
 
                         <div v-katex:auto style="margin: 2rem 0;">
-                            \(HA = Hop Amount Required (Grams)\)
+                            \(HA = \text{Hop Amount required (grams)}\)
                         </div>
                     </div>
                 </div>
@@ -124,7 +124,11 @@
 
                     <div>
                         <div v-katex:auto style="" :key="ebc.update">
-                            \(\Large MCU\) = \(\huge \frac{ MC * MW }{ TGL }\){{ ebc.ebcContribution ? ' = ' : '' }}\(\LARGE {{ ebc.ebcContribution }}{{ ebc.ebcContribution ? '\°EBC' : '' }}\)
+                            \(\Large MCU\) = \(\huge \frac{ {{ ebc.ebc ? ebc.ebc : 'MC' }} * {{ ebc.amount ? ebc.amount : 'MW' }} }{ {{ ebc.total ? ebc.total : 'TGL' }} }\){{ ebc.ebcContribution ? ' = ' : '' }}\(\LARGE {{ ebc.ebcContribution && parseFloat(ebc.ebcContribution).toFixed() }}{{ ebc.ebcContribution ? '\°EBC' : '' }}\)
+                        </div>
+
+                        <div v-katex:auto style="margin: 2rem 0;">
+                            \(MCU = \text{Malt Color of each grain load Unit}\)
                         </div>
                     </div>
                 </div>
