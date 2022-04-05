@@ -2,13 +2,10 @@
     padding: 0 1rem;
     grid-template-columns: 1fr;
 
-    h2 {
-        margin-bottom: 0;
-    }
-
     .beer-tool {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        padding-bottom: 2rem;
     }
 }
 
