@@ -224,7 +224,7 @@ export default {
                 this.plato.platoPre > 0 &&
                 this.plato.platoPost > 0
             ) {
-                this.plato.platoABV = parseFloat(this.plato.platoPre - this.plato.platoPost + 0.516).toFixed(1)
+                this.plato.platoABV = parseFloat((this.plato.platoPre - this.plato.platoPost) * 0.516).toFixed(1)
             }
         },
         calcEbc() {
