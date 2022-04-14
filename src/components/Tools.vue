@@ -1,6 +1,6 @@
 <template>
     <transition-group name="slide-fade" appear>
-        <article class="beer beer-tools" :key="0">
+        <article class="beer beer-tools" :key="0" style="background: #c7a996">
             <h2>Brewing Calculation Tools</h2>
         </article>
 
@@ -48,7 +48,7 @@
 
                     <div>
                         <div v-katex:auto :key="hopWeight.update">
-                            \(\Large HA\) = \(\LARGE \frac{ { {{ hopWeight.ibu ? hopWeight.ibu : 'I' }} } * {{ hopWeight.volume ? hopWeight.volume : 'V' }} * {{ hopWeight.og > 1.050 ? Number(parseFloat(1 + (hopWeight.og - 1.050) / 2 * 10).toFixed(3)) : hopWeight.og > 1 ? 1 : hopWeight.og == null ? 'C' : 'C' }} }{ {{ hopWeight.aAUtilization ? hopWeight.aAUtilization : 'U' }} * {{ hopWeight.alphaAcids ? hopWeight.alphaAcids / 100 : 'A' }} * K}\){{ hopWeight.required ? ' = ' : '' }}\(\huge {{ hopWeight.required }}\)
+                            \(\Large HA\) = \(\LARGE \frac{ { {{ hopWeight.ibu ? hopWeight.ibu : 'I' }} } * {{ hopWeight.volume ? hopWeight.volume : 'V' }} * {{ hopWeight.og > 1.050 ? Number(parseFloat(1 + (hopWeight.og - 1.050) / 0.2).toFixed(3)) : hopWeight.og > 1 ? 1 : hopWeight.og == null ? 'C' : 'C' }} }{ {{ hopWeight.aAUtilization ? hopWeight.aAUtilization : 'U' }} * {{ hopWeight.alphaAcids ? parseFloat(hopWeight.alphaAcids / 100).toFixed(3) : 'A' }} * K}\){{ hopWeight.required ? ' = ' : '' }}\(\huge {{ hopWeight.required }}\)
                         </div>
 
                         <div v-katex:auto style="margin: 2rem 0;">
@@ -129,6 +129,20 @@
 
                         <div v-katex:auto style="margin: 2rem 0;">
                             \(MCU = \text{Malt Color of each grain load Unit}\)
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <article class="beer beer-tools" :key="4">
+            <section>
+                <h3>Brewhouse Yield (Cold Wort Method)</h3>
+
+                <div class="beer-tool">
+                    <div>
+                        <div v-katex:auto>
+                            \(\Large η\) = \(\Large \frac{°P * SG * Vol * 0.96}{EAT}\)
                         </div>
                     </div>
                 </div>
