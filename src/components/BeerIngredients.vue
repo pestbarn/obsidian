@@ -110,7 +110,7 @@
                             <strong>SO<sub>4</sub><sup>2-</sup></strong> {{ chem['ca2'] }}
                         </td>
                         <td>
-                            <strong>HCo<sub>3</sub><sup>-</sup></strong> {{ chem['hco3'] }}
+                            <strong>HCO<sub>3</sub><sup>-</sup></strong> {{ chem['hco3'] }}
                         </td>
                     </tr>
                 </tbody>
