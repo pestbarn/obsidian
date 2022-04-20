@@ -1,7 +1,35 @@
 <template>
     <transition-group name="slide-fade" appear>
-        <article class="beer beer-tools" :key="0" style="background: #c7a996">
+        <article class="beer beer-tools" :key="-1" style="background: #c7a996">
             <h2>Brewing Calculation Tools</h2>
+        </article>
+
+        <article class="beer beer-tools" :key="0">
+            <section>
+                <h3>Plato to SG Conversion</h3>
+                <div class="beer-tool">
+                    <div>
+                        <form action="">
+                            <table>
+                                <tr>
+                                    <td><span v-katex="'\{ °P }'"></span></td>
+                                    <td><input type="text" v-model="platoSG.plato" @keyup="convertPlatoSG()" ref="plato"></td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                    <div>
+                        <form action="">
+                            <table>
+                                <tr>
+                                    <td><span v-katex="'\{ SG }'"></span></td>
+                                    <td><input type="text" v-model="platoSG.SG" @keyup="convertSGPlato()" ref="SG"></td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </section>
         </article>
 
         <article class="beer beer-tools" :key="1">
@@ -160,6 +188,10 @@ export default {
     data() {
         return {
             tools: [],
+            platoSG: {
+                plato: null,
+                SG: null,
+            },
             hopWeight: {
                 ibu: null,
                 volume: null,
@@ -251,6 +283,17 @@ export default {
             ) {
                 this.ebc.ebcContribution = parseFloat((this.ebc.ebc * this.ebc.amount) / this.ebc.total)
             }
+        },
+        convertPlatoSG() {
+            const plato = this.platoSG.plato
+            const formula = 1 + (plato / (258.6 - ((plato / 258.2) * 227.1)))
+            this.platoSG.SG = parseFloat(formula).toFixed(3)
+        },
+        convertSGPlato() {
+            const SG = this.platoSG.SG
+            const formula = (-1 * 616.868) + (1111.14 * SG) - (630.272 * Math.pow(SG, 2)) + (135.997 * Math.pow(SG, 3))
+            const value = parseFloat(formula).toFixed(1)
+            this.platoSG.plato = `${Math.round(value / 0.5) * 0.5}°P`
         }
     }
 }
